@@ -134,6 +134,12 @@
             border: 1px solid var(--border-color);
             text-align: center;
             position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-red);
         }
 
         .stat-card.live-card {
@@ -308,24 +314,29 @@
         <a href="#contact" class="btn">Get In Touch</a>
         
         <div class="stats-grid">
-            <!-- Real-Time Live YouTube Subscriber Counter -->
-            <div class="stat-card live-card">
+            <!-- Real-Time Live YouTube Subscriber Counter Card (Clickable) -->
+            <a href="https://youtube.com/@slpasiya" target="_blank" class="stat-card live-card" style="text-decoration: none;">
                 <div class="stat-number" id="yt-live-subs">Loading...</div>
                 <div class="stat-label"><span class="live-dot"></span>Live YouTube Subs</div>
-            </div>
+            </a>
             
-            <div class="stat-card">
+            <!-- Facebook Card (Clickable) -->
+            <a href="https://facebook.com/slpasiya" target="_blank" class="stat-card" style="text-decoration: none;">
                 <div class="stat-number">50K+</div>
                 <div class="stat-label">Facebook</div>
-            </div>
-            <div class="stat-card">
+            </a>
+
+            <!-- TikTok Card (Clickable) -->
+            <a href="https://tiktok.com/@slpasiya" target="_blank" class="stat-card" style="text-decoration: none;">
                 <div class="stat-number">37K+</div>
                 <div class="stat-label">TikTok</div>
-            </div>
-            <div class="stat-card">
+            </a>
+
+            <!-- Instagram Card (Clickable) -->
+            <a href="https://instagram.com/slpasiya" target="_blank" class="stat-card" style="text-decoration: none;">
                 <div class="stat-number">1.9K+</div>
                 <div class="stat-label">Instagram</div>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -421,9 +432,9 @@
     <footer>
         <div class="social-icons">
             <a href="https://youtube.com/@slpasiya" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://facebook.com/slpasiya" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://instagram.com/slpasiya" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://tiktok.com/@slpasiya" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
         </div>
         <p>&copy; 2026 SL PASIYA MEDIA & TRADING. All Rights Reserved.</p>
     </footer>
@@ -452,7 +463,7 @@
                         formattedCount = count;
                     }
 
-                    // 93.1K වගේ කෙටි කර පෙන්වයි
+                    // 93.8K වගේ කෙටි කර පෙන්වයි
                     document.getElementById('yt-live-subs').innerText = formattedCount;
                 } else {
                     document.getElementById('yt-live-subs').innerText = 'Unavailable';
