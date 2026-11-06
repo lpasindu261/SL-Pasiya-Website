@@ -119,7 +119,7 @@
             margin-bottom: 2rem;
         }
 
-        /* Social Stats Bar */
+        /* Social Stats Bar & Live Counter */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -133,6 +133,12 @@
             border-radius: 12px;
             border: 1px solid var(--border-color);
             text-align: center;
+            position: relative;
+        }
+
+        .stat-card.live-card {
+            border-color: var(--accent-red);
+            background: linear-gradient(145deg, #1f2833, #151b22);
         }
 
         .stat-number {
@@ -144,6 +150,22 @@
         .stat-label {
             font-size: 0.85rem;
             color: var(--text-muted);
+        }
+
+        .live-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-red);
+            border-radius: 50%;
+            margin-right: 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(229, 9, 20, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0); }
         }
 
         /* Main Section Container */
@@ -286,10 +308,12 @@
         <a href="#contact" class="btn">Get In Touch</a>
         
         <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">93K+</div>
-                <div class="stat-label">YouTube Subs</div>
+            <!-- Real-Time Live YouTube Subscriber Counter -->
+            <div class="stat-card live-card">
+                <div class="stat-number" id="yt-live-subs">Loading...</div>
+                <div class="stat-label"><span class="live-dot"></span>Live YouTube Subs</div>
             </div>
+            
             <div class="stat-card">
                 <div class="stat-number">50K+</div>
                 <div class="stat-label">Facebook</div>
@@ -404,5 +428,32 @@
         <p>&copy; 2026 SL PASIYA MEDIA & TRADING. All Rights Reserved.</p>
     </footer>
 
+    <!-- YouTube Live Subscriber Fetch Script -->
+    <script>
+        async function fetchLiveYtSubscribers() {
+            const apiKey = 'AIzaSyD-cBKcBB2jraBKUPJb1TBQpilYfIg48ek';
+            const channelHandle = 'slpasiya'; 
+            
+            const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&forHandle=${channelHandle}&key=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (data.items && data.items.length > 0) {
+                    const count = data.items[0].statistics.subscriberCount;
+                    document.getElementById('yt-live-subs').innerText = Number(count).toLocaleString();
+                } else {
+                    document.getElementById('yt-live-subs').innerText = '93K+';
+                }
+            } catch (error) {
+                console.error('YouTube Live Counter Error:', error);
+                document.getElementById('yt-live-subs').innerText = '93K+';
+            }
+        }
+
+        fetchLiveYtSubscribers();
+        setInterval(fetchLiveYtSubscribers, 120000);
+    </script>
 </body>
 </html>
