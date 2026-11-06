@@ -429,9 +429,10 @@
     </footer>
 
     <!-- YouTube Live Subscriber Fetch Script -->
+    <!-- YouTube Live Subscriber Fetch Script -->
     <script>
         async function fetchLiveYtSubscribers() {
-            const apiKey = 'AIzaSyD-cBKcBB2jraBKUPJb1TBQpilYfIg48ek';
+            const apiKey = 'AIzaSyD-cBKcBB2jraBKUPJb1TBQpilYfIg48ek';[cite: 11]
             const channelHandle = 'slpasiya'; 
             
             const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&forHandle=${channelHandle}&key=${apiKey}`;
@@ -442,13 +443,14 @@
                 
                 if (data.items && data.items.length > 0) {
                     const count = data.items[0].statistics.subscriberCount;
-                    document.getElementById('yt-live-subs').innerText = Number(count).toLocaleString();
+                    // කිසිම කෙටි කිරීමකින් තොරව හරියටම එම අංකයම පෙන්වයි (උදා: 93458)
+                    document.getElementById('yt-live-subs').innerText = count;
                 } else {
-                    document.getElementById('yt-live-subs').innerText = '93K+';
+                    document.getElementById('yt-live-subs').innerText = 'Unavailable';
                 }
             } catch (error) {
                 console.error('YouTube Live Counter Error:', error);
-                document.getElementById('yt-live-subs').innerText = '93K+';
+                document.getElementById('yt-live-subs').innerText = 'Error';
             }
         }
 
