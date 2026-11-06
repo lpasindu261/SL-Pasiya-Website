@@ -429,13 +429,13 @@
     </footer>
 
     <!-- YouTube Live Subscriber Fetch Script -->
-    <!-- YouTube Live Subscriber Fetch Script -->
     <script>
         async function fetchLiveYtSubscribers() {
-            const apiKey = 'AIzaSyBkpLARy9hBlBdOcd-QtuHCTUfP6d0bgcg';[cite: 11]
-            const channelHandle = 'UCWj4YlsI2lhzVFgpcBRl8jw'; 
+            const apiKey = 'AIzaSyBkpLARy9hBlBdOcd-QtuHCTUfP6d0bgcg';
+            const channelId = 'UCWj4YlsI2lhzVFgpcBRl8jw'; 
             
-            const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&forHandle=${channelHandle}&key=${apiKey}`;
+            // forHandle වෙනුවට id= පාවිච්චි කර ඇත
+            const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
 
             try {
                 const response = await fetch(url);
@@ -443,7 +443,7 @@
                 
                 if (data.items && data.items.length > 0) {
                     const count = data.items[0].statistics.subscriberCount;
-                    // කිසිම කෙටි කිරීමකින් තොරව හරියටම එම අංකයම පෙන්වයි (උදා: 93458)
+                    // හරියටම නියම අංකය (උදා: 93458) පෙන්වයි
                     document.getElementById('yt-live-subs').innerText = count;
                 } else {
                     document.getElementById('yt-live-subs').innerText = 'Unavailable';
