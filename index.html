@@ -434,7 +434,6 @@
             const apiKey = 'AIzaSyBkpLARy9hBlBdOcd-QtuHCTUfP6d0bgcg';
             const channelId = 'UCWj4YlsI2lhzVFgpcBRl8jw'; 
             
-            // forHandle වෙනුවට id= පාවිච්චි කර ඇත
             const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
 
             try {
@@ -442,9 +441,19 @@
                 const data = await response.json();
                 
                 if (data.items && data.items.length > 0) {
-                    const count = data.items[0].statistics.subscriberCount;
-                    // හරියටම නියම අංකය (උදා: 93458) පෙන්වයි
-                    document.getElementById('yt-live-subs').innerText = count;
+                    const count = Number(data.items[0].statistics.subscriberCount);
+                    
+                    let formattedCount;
+                    if (count >= 1000000) {
+                        formattedCount = (count / 1000000).toFixed(1) + 'M';
+                    } else if (count >= 1000) {
+                        formattedCount = (count / 1000).toFixed(1) + 'K';
+                    } else {
+                        formattedCount = count;
+                    }
+
+                    // 93.1K වගේ කෙටි කර පෙන්වයි
+                    document.getElementById('yt-live-subs').innerText = formattedCount;
                 } else {
                     document.getElementById('yt-live-subs').innerText = 'Unavailable';
                 }
