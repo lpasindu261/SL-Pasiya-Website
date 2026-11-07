@@ -3,16 +3,385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | SL PASIYA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>About & Contact | SL PASIYA</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #0b0c10; color: #fff; font-family: 'Outfit', sans-serif; padding: 2rem; text-align: center; }
-        a { color: #e50914; text-decoration: none; font-weight: bold; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f17;
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            width: 100%;
+            background: #131b29;
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #ff2a2a;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            flex: 1 1 250px;
+            text-align: center;
+        }
+
+        .profile-img img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ff2a2a;
+            box-shadow: 0 0 20px rgba(255, 42, 42, 0.3);
+        }
+
+        .profile-bio {
+            flex: 2 1 350px;
+        }
+
+        .profile-bio h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .profile-bio p {
+            color: #cbd5e1;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff2a2a;
+            padding-left: 12px;
+        }
+
+        /* Services Grid */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #1a2332;
+            border: 1px solid #283548;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ff2a2a;
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: #ff2a2a;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        /* Contact Section Grid */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #1a2332;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid #283548;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: #ff2a2a;
+        }
+
+        .info-item div h4 {
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .info-item div p, .info-item div a {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-item div a:hover {
+            color: #ff2a2a;
+        }
+
+        /* Social Icons */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            background: #1a2332;
+            border: 1px solid #283548;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: #ff2a2a;
+            border-color: #ff2a2a;
+            transform: translateY(-3px);
+        }
+
+        /* Quick Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: #1a2332;
+            border: 1px solid #283548;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #ff2a2a;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #ff2a2a;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #e02222;
+            box-shadow: 0 0 15px rgba(255, 42, 42, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Let's Work Together</h1>
-    <p>Have a commercial project, event coverage, or rental inquiry? Email: lpasindu261@gmail.com</p>
-    <br><a href="index.html">&larr; Back to Home</a>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Behind SL PASIYA</h1>
+            <p>Automotive Content Creation & Motorsport Videography</p>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-img">
+                <img src="https://via.placeholder.com/200" alt="Pasindu Lakshan">
+            </div>
+            <div class="profile-bio">
+                <h2>Hi, I'm Pasindu Lakshan</h2>
+                <p>
+                    Automotive Content Creator, Videographer, and Founder of <strong>SL PASIYA MEDIA & TRADING</strong>. 
+                    I specialize in high-energy motorsport videography, trackside coverage, motorcycle reviews, and cinematic automotive storytelling.
+                </p>
+            </div>
+        </div>
+
+        <!-- Services -->
+        <h3 class="section-title">What I Do</h3>
+        <div class="highlights">
+            <div class="card">
+                <i class="fa-solid fa-video"></i>
+                <h3>Videography</h3>
+                <p>Trackside drag racing, track events & high-speed action capture.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-motorcycle"></i>
+                <h3>Reviews</h3>
+                <p>In-depth motorcycle reviews, performance testing & head-to-head comparisons.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-bullhorn"></i>
+                <h3>Brand Campaigns</h3>
+                <p>Promotional media coverage & strategic partner collaborations.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <h3 class="section-title">Get in Touch</h3>
+        <div class="contact-container">
+            <!-- Contact Details -->
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Colombo / Kottawa, Sri Lanka</p>
+                    </div>
+                </div>
+
+                <!-- Phone / WhatsApp -->
+                <div class="info-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div>
+                        <h4>Phone / WhatsApp</h4>
+                        <!-- 9477XXXXXXX කියන තැනට 0 නැතුව ඔයාගේ අංකය ඇතුළත් කරන්න -->
+                        <p><a href="https://wa.me/9477XXXXXXX" target="_blank">+94 77 865 1647</a></p>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>Email / Business Inquiries</h4>
+                        <p><a href="mailto:lpasindu261@gmail.com">lpasindu261@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="info-item">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <div>
+                        <h4>Connect with me</h4>
+                        <div class="social-links">
+                            <a href="https://facebook.com" target="_blank" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://tiktok.com" target="_blank" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Inquiry Form -->
+            <form class="contact-form" action="mailto:slpasiya@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="4" placeholder="Your Message / Inquiry..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+            </form>
+        </div>
+
+        <!-- Back Button -->
+        <div class="actions">
+            <a href="index.html" class="btn btn-primary" style="background-color: transparent; border: 2px solid #334155;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
 </body>
 </html>
