@@ -146,8 +146,9 @@
             }`;
 
             try {
-                const response = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-                const res = await fetch(response, {
+                // යල්පැන ගිය gemini-1.5-flash වෙනුවට නිවැරදි gemini-2.5-flash මාදිලිය යොදා ඇත
+                const responseUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+                const res = await fetch(responseUrl, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
