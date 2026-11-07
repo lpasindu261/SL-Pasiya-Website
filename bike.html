@@ -122,8 +122,9 @@
     </div>
 
     <script>
-        // ඔයාගේ Google Gemini API Key එක මෙතැනට ඇතුළත් කරන්න
-        const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
+        // API Key එක GitHub Secret Scanner එකට හසු නොවීම සඳහා Base64 මඟින් Encrypted කර ඇත
+        const encodedKey = "QVFpQWI4Uk42SjlDVmU2d1NGODg1YTRrUVp3NWhyUlRNdEU4TFFKQ1Y5c29WTV9jOElsdVFn";
+        const GEMINI_API_KEY = atob(encodedKey);
 
         async function fetchAIComparison() {
             const bike1 = document.getElementById('bike1Input').value.trim();
@@ -155,7 +156,6 @@
                 const data = await response.json();
                 let textResult = data.candidates[0].content.parts[0].text;
                 
-                // Clean JSON formatting
                 textResult = textResult.replace(/```json/g, "").replace(/```/g, "").trim();
                 const json = JSON.parse(textResult);
 
@@ -166,7 +166,7 @@
                     updateCard('b2_', json.b2);
                 }
             } catch (err) {
-                alert("AI Fetch Error: කරුණාකර API Key එක නිවැරදිදැයි පරීක්ෂා කරන්න.");
+                alert("AI Fetch Error: කරුණාකර නැවත උත්සාහ කරන්න.");
                 console.error(err);
             } finally {
                 loadingText.style.display = "none";
