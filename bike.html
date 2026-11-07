@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Comparison & Database | SL PASIYA</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f17;
+            color: #e2e8f0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #131b29;
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #ff2a2a;
+            font-size: 2.3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .notice-banner {
+            background: rgba(255, 42, 42, 0.1);
+            border: 1px solid #ff2a2a;
+            color: #fca5a5;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        /* Search & Select Section */
+        .compare-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .compare-selector {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .compare-selector select {
+            width: 100%;
+            padding: 12px 15px;
+            background: #1a2332;
+            border: 1px solid #283548;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .compare-selector select:focus {
+            border-color: #ff2a2a;
+        }
+
+        .btn-compare {
+            background-color: #ff2a2a;
+            color: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-compare:hover {
+            background-color: #e02222;
+        }
+
+        /* Comparison Display Area */
+        .comparison-result {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-result {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .bike-card {
+            background: #1a2332;
+            border: 1px solid #283548;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .bike-card h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ff2a2a;
+        }
+
+        .bike-spec-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .bike-spec-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #283548;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bike-spec-list li span {
+            color: #94a3b8;
+        }
+
+        .sinhala-review {
+            margin-top: 15px;
+            background: #0f172a;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #e2e8f0;
+            border: 2px solid #334155;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            border-color: #ff2a2a;
+            color: #ff2a2a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Bike Comparison & Database</h1>
+            <p>SL PASIYA Motorcycle Specs & Sinhala Review Hub</p>
+        </div>
+
+        <!-- Notice Banner -->
+        <div class="notice-banner">
+            <i class="fa-solid fa-triangle-exclamation"></i> මේක බයික් ඩේටා සහ රිවීව් බලන්න විතරයි. වෙබ් අඩවිය තුළ සෘජුව මිලදී ගැනීමට ස්ටොක් (Stock) නොමැත.
+        </div>
+
+        <!-- Selection Bar -->
+        <div class="compare-selector">
+            <select id="bike1Select">
+                <option value="">-- First Bike එක තෝරන්න --</option>
+                <option value="cfmoto450mt">CFMOTO 450MT</option>
+                <option value="ktm390adv">KTM 390 Adventure</option>
+            </select>
+
+            <select id="bike2Select">
+                <option value="">-- Second Bike එක තෝරන්න --</option>
+                <option value="cfmoto450mt">CFMOTO 450MT</option>
+                <option value="ktm390adv">KTM 390 Adventure</option>
+            </select>
+
+            <button class="btn-compare" onclick="alert('Compare feature එක Load වෙනවා!')">Compare කරන්න</button>
+        </div>
+
+        <!-- Comparison Display Section (Sample) -->
+        <div class="comparison-result">
+            <!-- Bike 1 -->
+            <div class="bike-card">
+                <h3>CFMOTO 450MT</h3>
+                <ul class="bike-spec-list">
+                    <li><span>Engine:</span> 449.5cc, Parallel Twin</li>
+                    <li><span>Power:</span> 41 HP @ 8500 rpm</li>
+                    <li><span>Weight:</span> 175 kg</li>
+                    <li><span>ABS & TC:</span> Switchable Bosch ABS & TC</li>
+                </ul>
+                <div class="sinhala-review">
+                    <strong>Pasiya's Review:</strong> මේ බයික් එක off-road වලදී patta comfort එකක් දෙනවා. Twin engine එකේ sound එකත් maxxa. Suspension setup එකත් lankාවේ පාරවලට hondටම set වෙනවා.
+                </div>
+            </div>
+
+            <!-- Bike 2 -->
+            <div class="bike-card">
+                <h3>KTM 390 Adventure</h3>
+                <ul class="bike-spec-list">
+                    <li><span>Engine:</span> 373.2cc, Single Cylinder</li>
+                    <li><span>Power:</span> 43 HP @ 9000 rpm</li>
+                    <li><span>Weight:</span> 177 kg</li>
+                    <li><span>ABS & TC:</span> Cornering ABS & MTC</li>
+                </ul>
+                <div class="sinhala-review">
+                    <strong>Pasiya's Review:</strong> Pick-up එක නම් අחר අතට patta aggressive. High-speed track වලත් cornering handling එක අතිශයින්ම niyamai. Single cylinder vibration එක පොඩි එකක් තියෙනවා.
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="actions">
+            <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>
