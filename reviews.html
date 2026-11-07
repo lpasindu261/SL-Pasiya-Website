@@ -56,10 +56,18 @@
             padding-left: 12px;
         }
 
-        /* YouTube Main Videos Grid (6 Videos) */
+        /* Video Grid (3 Columns) */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* 4 Column Grid for Comparisons */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 25px;
             margin-bottom: 40px;
         }
@@ -188,102 +196,99 @@
             <p>In-Depth Motorcycle Reviews, Comparisons & Trackside Vlogs</p>
         </div>
 
-        <!-- Main YouTube Videos Section (6 Long Videos) -->
-        <h3 class="section-title">Latest Motorcycle Reviews & Vlogs</h3>
+        <!-- 1. Latest Motorcycle Reviews (6 Videos) -->
+        <h3 class="section-title">Latest Motorcycle Reviews</h3>
         <div class="video-grid">
-            <!-- Video 1 -->
             <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>CFMOTO 450MT vs KTM 390 Adventure</h3>
-                    <p>In-depth performance & features comparison.</p>
-                </div>
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/oJVnpyBjk6I?si=KPBK9QNivMhUexqd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Review 01</h3><p>Detailed performance test.</p></div>
             </div>
-
-            <!-- Video 2 -->
             <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Yamaha YZF 450F Review</h3>
-                    <p>ශ්‍රී ලංකාවේ වේගවත්ම Monster එක!</p>
-                </div>
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/sAydhGXXVzg?si=B4L0cYK4ZM8quvw3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Review 02</h3><p>Detailed performance test.</p></div>
             </div>
-
-            <!-- Video 3 -->
             <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/0-w2jEqxJS8?si=MgxmHGuGWMSUfyX9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Trackside Vlog 01</h3>
-                    <p>Katukurunda Race Day Coverage.</p>
-                </div>
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/K95CrlVZSGc?si=nynU9lMtnkyRWaCJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Review 03</h3><p>Detailed performance test.</p></div>
             </div>
-
-            <!-- Video 4 -->
             <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Motorcycle Review 03</h3>
-                    <p>Detailed performance test.</p>
-                </div>
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/yMuiapB7cZI?si=yT7tuR_aRh7kX1-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Review 04</h3><p>Detailed performance test.</p></div>
             </div>
-
-            <!-- Video 5 -->
             <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Brand Promotion Campaign</h3>
-                    <p>Special feature and coverage.</p>
-                </div>
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/M81jV3uwX_I?si=UYZO7Nx1aH4p6UO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Review 05</h3><p>Detailed performance test.</p></div>
             </div>
-
-            <!-- Video 6 -->
             <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_6" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Road Trip Vlog</h3>
-                    <p>Long distance riding experience.</p>
-                </div>
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/2-47qucwfzI?si=oNO81e5W6OOytAwk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Review 06</h3><p>Detailed performance test.</p></div>
             </div>
         </div>
 
-        <!-- Shorts / Short-form Videos Section (4 Shorts) -->
+        <!-- 2. Trackside & Touring Vlogs (6 Videos) -->
+        <h3 class="section-title">Trackside & Touring Vlogs</h3>
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/NKVSJOIom1I?si=QWEoWWqPHBnUfPB-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Trackside Vlog 01</h3><p>Race day coverage & behind the scenes.</p></div>
+            </div>
+            <div class="video-card">
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/K83nteJ_-Ow?si=l-aScIc_fZSpRlZh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Trackside Vlog 02</h3><p>Race day coverage & behind the scenes.</p></div>
+            </div>
+            <div class="video-card">
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/K83nteJ_-Ow?si=l-aScIc_fZSpRlZh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Trackside Vlog 03</h3><p>Race day coverage & behind the scenes.</p></div>
+            </div>
+            <div class="video-card">
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/7jmyV79Znhg?si=A-7TpltFvmlZgtgq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Touring Vlog 01</h3><p>Long distance riding experience.</p></div>
+            </div>
+            <div class="video-card">
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/q_STqa1_cZA?si=zgzubpe6aXeut8AN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Touring Vlog 02</h3><p>Long distance riding experience.</p></div>
+            </div>
+            <div class="video-card">
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/M5-sY_WUlIE?si=VWnu81sm9LKyEOHh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Touring Vlog 03</h3><p>Long distance riding experience.</p></div>
+            </div>
+        </div>
+
+        <!-- 3. Bike Comparisons (4 Videos) -->
+        <h3 class="section-title">Bike Comparisons</h3>
+        <div class="comparison-grid">
+            <div class="video-card">
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/E_vRkNcZ6h8?si=DPbysbTLUOg7JA0a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Comparison 01</h3><p>Head to head spec comparison.</p></div>
+            </div>
+            <div class="video-card">
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/ASr5QdlHExU?si=6J7saCxbKmv53uJj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Comparison 02</h3><p>Head to head spec comparison.</p></div>
+            </div>
+            <div class="video-card">
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/0I0XADLaB5I?si=1LV7VBVJg6EXVheT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Comparison 03</h3><p>Head to head spec comparison.</p></div>
+            </div>
+            <div class="video-card">
+                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/ySOguBBmwgg?si=98izVj--prtA1ZdN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <div class="video-info"><h3>Comparison 04</h3><p>Head to head spec comparison.</p></div>
+            </div>
+        </div>
+
+        <!-- 4. Shorts & Quick Reels (4 Shorts) -->
         <h3 class="section-title">Shorts & Quick Reels</h3>
         <div class="shorts-grid">
-            <!-- Short 1 -->
             <div class="short-card">
-                <div class="short-wrapper">
-                    <iframe src="https://www.youtube.com/embed/YOUR_SHORT_ID_1" allowfullscreen></iframe>
-                </div>
+                <div class="short-wrapper"><iframe src="https://youtube.com/shorts/M_C7CU3wdfA?si=lVm_rZ2KZ7v9yFxY"></iframe></div>
             </div>
-            <!-- Short 2 -->
             <div class="short-card">
-                <div class="short-wrapper">
-                    <iframe src="https://www.youtube.com/embed/YOUR_SHORT_ID_2" allowfullscreen></iframe>
-                </div>
+                <div class="short-wrapper"><iframe src="https://www.youtube.com/embed/YOUR_SHORT_2" allowfullscreen></iframe></div>
             </div>
-            <!-- Short 3 -->
             <div class="short-card">
-                <div class="short-wrapper">
-                    <iframe src="https://www.youtube.com/embed/YOUR_SHORT_ID_3" allowfullscreen></iframe>
-                </div>
+                <div class="short-wrapper"><iframe src="https://www.youtube.com/embed/YOUR_SHORT_3" allowfullscreen></iframe></div>
             </div>
-            <!-- Short 4 -->
             <div class="short-card">
-                <div class="short-wrapper">
-                    <iframe src="https://www.youtube.com/embed/YOUR_SHORT_ID_4" allowfullscreen></iframe>
-                </div>
+                <div class="short-wrapper"><iframe src="https://www.youtube.com/embed/YOUR_SHORT_4" allowfullscreen></iframe></div>
             </div>
         </div>
 
