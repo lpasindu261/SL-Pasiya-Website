@@ -38,22 +38,6 @@
         }
 
         /* Header Navigation */
-        <header>
-            <div class="nav-container">
-                <a href="index.html" class="logo-container">
-                    <img src="logo.jpg" alt="SL PASIYA Logo" class="site-logo">
-                </a>
-                <ul class="nav-links">
-                    <li><a href="index.html" style="color: var(--accent-red);">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="reviews.html">Reviews & Promotions</a></li>
-                    <li><a href="visuals.html">Pasindu Visuals</a></li>
-                    <li><a href="rentals.html">Gear Rentals</a></li>
-                    <li><a href="shop.html">Store</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </header>
         header {
             position: sticky;
             top: 0;
@@ -72,16 +56,21 @@
             padding: 1rem 1.5rem;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-main);
+        .logo-container {
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            letter-spacing: 1px;
         }
-
-        .logo span {
-            color: var(--accent-red);
+        
+        .site-logo {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .site-logo:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -373,22 +362,6 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 2.2rem; }
         }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-        
-        .site-logo {
-            height: 45px; /* Logo එකේ උස ප්‍රමාණය */
-            width: auto;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-        
-        .site-logo:hover {
-            transform: scale(1.05); /* Hover කරද්දී පොඩි animation එකක් */
-        }
     </style>
 </head>
 <body>
@@ -396,28 +369,27 @@
     <!-- Header Navigation -->
     <header>
         <div class="nav-container">
-            <!-- Header Navigation (Logo Updated) -->
-            <a href="#" class="logo-container">
+            <a href="index.html" class="logo-container">
                 <img src="logo.jpg" alt="SL PASIYA Logo" class="site-logo">
             </a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#reviews">Reviews & Promotions</a></li>
-                <li><a href="#visuals">Pasindu Visuals</a></li>
-                <li><a href="#rentals">Gear Rentals</a></li>
-                <li><a href="#shop">Store</a></li>
-                <li><a href="#personal">Creator Profile</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html" style="color: var(--accent-red);">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reviews.html">Reviews & Promotions</a></li>
+                <li><a href="visuals.html">Pasindu Visuals</a></li>
+                <li><a href="rentals.html">Gear Rentals</a></li>
+                <li><a href="shop.html">Store</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="about">
+    <section class="hero" id="about-hero">
         <span class="badge">OFFICIAL MEDIA & TECH HUB</span>
         <h1>Automotive Creator, Visual Artist & Tech Enthusiast</h1>
         <p>Raw motorcycle reviews, official brand promotions, Pasindu Visuals production, camera rentals & curated tech accessories.</p>
-        <a href="#contact" class="btn">Get In Touch</a>
+        <a href="contact.html" class="btn">Get In Touch</a>
         
         <div class="stats-grid">
             <!-- YouTube Subscriber Counter Card -->
@@ -456,19 +428,19 @@
                 <i class="fa-solid fa-motorcycle card-icon"></i>
                 <h3>Motorcycle Reviews</h3>
                 <p>Detailed performance breakdowns, meter panel tech, and real-world riding evaluations for modern bikes.</p>
-                <a href="https://youtube.com/@slpasiya" target="_blank" class="btn btn-outline">Watch Reviews</a>
+                <a href="reviews.html" class="btn btn-outline">Watch Reviews</a>
             </div>
             <div class="card">
                 <i class="fa-solid fa-flag-checkered card-icon"></i>
                 <h3>Motorsport & Track Coverage</h3>
                 <p>High-octane vlogs covering Drag Wars, Supercross events, and motor shows across Sri Lanka.</p>
-                <a href="https://youtube.com/@slpasiya" target="_blank" class="btn btn-outline">Explore Vlogs</a>
+                <a href="reviews.html" class="btn btn-outline">Explore Vlogs</a>
             </div>
             <div class="card">
                 <i class="fa-solid fa-bullhorn card-icon"></i>
                 <h3>Commercial Brand Partnerships</h3>
                 <p>Promotional campaigns for automotive brands, showroom launches, tire test evaluations, and products.</p>
-                <a href="#contact" class="btn">Partner With Us</a>
+                <a href="contact.html" class="btn">Partner With Us</a>
             </div>
         </div>
     </section>
@@ -483,19 +455,19 @@
                 <i class="fa-solid fa-video card-icon"></i>
                 <h3>Automotive & Event Coverage</h3>
                 <p>Cinematic event capture for racing meets, brand showrooms, and commercial video projects.</p>
-                <a href="https://youtube.com/@slpasiya" target="_blank" class="btn btn-outline">Watch Works</a>
+                <a href="visuals.html" class="btn btn-outline">Watch Works</a>
             </div>
             <div class="card">
                 <i class="fa-solid fa-camera card-icon"></i>
                 <h3>Motorsport Photography</h3>
                 <p>High-action RAW photography capturing the intensity of track days, pro riders, and custom builds.</p>
-                <a href="#contact" class="btn btn-outline">Book Shoot</a>
+                <a href="contact.html" class="btn btn-outline">Book Shoot</a>
             </div>
             <div class="card">
                 <i class="fa-solid fa-film card-icon"></i>
                 <h3>Freelance Video Editing</h3>
                 <p>Short-form vertical reels (TikTok/Shorts) and full-length YouTube reviews color-graded in S-Log3 / D-Log M.</p>
-                <a href="#contact" class="btn btn-outline">Hire Editor</a>
+                <a href="contact.html" class="btn btn-outline">Hire Editor</a>
             </div>
         </div>
 
@@ -529,19 +501,19 @@
                 <i class="fa-solid fa-sliders card-icon"></i>
                 <h3>Gimbals & Stabilization</h3>
                 <p>DJI RS 4 Gimbal & Osmo Pocket 3 setup for ultra-smooth dynamic tracking shots.</p>
-                <a href="https://wa.me/94770000000?text=Hi%20SL%20PASIYA,%20I'd%20like%20to%20inquire%20about%20gimbal%20rentals." target="_blank" class="btn">Inquire Rates</a>
+                <a href="rentals.html" class="btn">Inquire Rates</a>
             </div>
             <div class="card">
                 <i class="fa-solid fa-microphone card-icon"></i>
                 <h3>Audio & Microphones</h3>
                 <p>Boya Mic 2 AI wireless audio receivers & dedicated mics for crystal clear voice logging and interviews.</p>
-                <a href="https://wa.me/94770000000?text=Hi%20SL%20PASIYA,%20I'd%20like%20to%20inquire%20about%20mic%20rentals." target="_blank" class="btn">Inquire Rates</a>
+                <a href="rentals.html" class="btn">Inquire Rates</a>
             </div>
             <div class="card">
                 <i class="fa-solid fa-box-open card-icon"></i>
                 <h3>Production Accessories</h3>
                 <p>High-speed memory cards, extra Sony NP-FZ100 batteries, and lighting gear for full-day shoots.</p>
-                <a href="https://wa.me/94770000000?text=Hi%20SL%20PASIYA,%20I'd%20like%20to%20inquire%20about%20accessories." target="_blank" class="btn">Inquire Rates</a>
+                <a href="rentals.html" class="btn">Inquire Rates</a>
             </div>
         </div>
     </section>
@@ -556,19 +528,19 @@
                 <i class="fa-solid fa-mitten card-icon"></i>
                 <h3>Rider Gloves & Gear</h3>
                 <p>High-quality riding gloves, safety gear, and essentials for everyday and track riders.</p>
-                <a href="https://wa.me/94770000000?text=Hi%20SL%20PASIYA,%20I'd%20like%20to%20inquire%20about%20gloves%20and%20gear." target="_blank" class="btn btn-outline">Inquire via WhatsApp</a>
+                <a href="shop.html" class="btn btn-outline">View Store</a>
             </div>
             <div class="card">
                 <i class="fa-solid fa-shirt card-icon"></i>
                 <h3>Shirts & Merch</h3>
                 <p>Exclusive branded T-shirts, hoodies, stickers, and apparel for the SL PASIYA community.</p>
-                <a href="https://wa.me/94770000000?text=Hi%20SL%20PASIYA,%20I'd%20like%20to%20buy%20shirts%20and%20merch." target="_blank" class="btn btn-outline">Order via WhatsApp</a>
+                <a href="shop.html" class="btn btn-outline">View Store</a>
             </div>
             <div class="card">
                 <i class="fa-solid fa-bolt card-icon"></i>
                 <h3>Tech Accessories</h3>
                 <p>UGREEN fast chargers, cables, and fast memory cards suitable for high bit-rate video recording.</p>
-                <a href="https://wa.me/94770000000?text=Hi%20SL%20PASIYA,%20I'd%20like%20to%20buy%20tech%20accessories." target="_blank" class="btn btn-outline">Order via WhatsApp</a>
+                <a href="shop.html" class="btn btn-outline">View Store</a>
             </div>
         </div>
     </section>
