@@ -11,7 +11,243 @@
     </style>
 </head>
 <body>
-    <h1>Reviews & Brand Promotions</h1>
+    <h1>Reviews & Brand Promotions</h1><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews & Videos | SL PASIYA</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f17;
+            color: #e2e8f0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #131b29;
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #ff2a2a;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin: 30px 0 20px 0;
+            border-left: 4px solid #ff2a2a;
+            padding-left: 12px;
+        }
+
+        /* YouTube Main Videos Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .video-card {
+            background: #1a2332;
+            border: 1px solid #283548;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff2a2a;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-info h3 {
+            font-size: 1.05rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .video-info p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Shorts / Reels Section */
+        .shorts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .short-card {
+            background: #1a2332;
+            border: 1px solid #283548;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .short-wrapper {
+            position: relative;
+            padding-bottom: 177.77%; /* 9:16 Vertical Ratio for Shorts */
+            height: 0;
+        }
+
+        .short-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #ff2a2a;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #e02222;
+            box-shadow: 0 0 15px rgba(255, 42, 42, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>SL PASIYA Reviews & Videos</h1>
+            <p>In-Depth Motorcycle Reviews, Comparisons & Trackside Vlogs</p>
+        </div>
+
+        <!-- Main YouTube Videos Section -->
+        <h3 class="section-title">Latest Motorcycle Reviews</h3>
+        <div class="video-grid">
+            <!-- Video 1 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>CFMOTO 450MT vs KTM 390 Adventure</h3>
+                    <p>In-depth performance & features comparison.</p>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Yamaha YZF 450F Review</h3>
+                    <p>ශ්‍රී ලංකාවේ වේගවත්ම Monster එක!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shorts / Short-form Videos Section -->
+        <h3 class="section-title">Shorts & Quick Reels</h3>
+        <div class="shorts-grid">
+            <!-- Short 1 -->
+            <div class="short-card">
+                <div class="short-wrapper">
+                    <iframe src="https://www.youtube.com/embed/YOUR_SHORT_ID_1" allowfullscreen></iframe>
+                </div>
+            </div>
+            <!-- Short 2 -->
+            <div class="short-card">
+                <div class="short-wrapper">
+                    <iframe src="https://www.youtube.com/embed/YOUR_SHORT_ID_2" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="actions">
+            <a href="index.html" class="btn btn-primary" style="background-color: transparent; border: 2px solid #334155;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>
     <p>Motorcycle evaluations, trackside racing vlogs & commercial brand campaigns.</p>
     <br><a href="index.html">&larr; Back to Home</a>
 </body>
