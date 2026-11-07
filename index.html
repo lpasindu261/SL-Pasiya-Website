@@ -353,6 +353,22 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 2.2rem; }
         }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .site-logo {
+            height: 45px; /* Logo එකේ උස ප්‍රමාණය */
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .site-logo:hover {
+            transform: scale(1.05); /* Hover කරද්දී පොඩි animation එකක් */
+        }
     </style>
 </head>
 <body>
@@ -360,7 +376,10 @@
     <!-- Header Navigation -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">SL <span>PASIYA</span></a>
+            <!-- Header Navigation (Logo Updated) -->
+            <a href="#" class="logo-container">
+                <img src="logo.png" alt="SL PASIYA Logo" class="site-logo">
+            </a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#reviews">Reviews & Promotions</a></li>
@@ -562,6 +581,9 @@
 
     <!-- Footer -->
     <footer>
+        <div style="margin-bottom: 1.5rem;">
+            <img src="logo.png" alt="SL PASIYA Logo" style="height: 40px; width: auto;">
+        </div>
         <div class="social-icons">
             <a href="https://youtube.com/@slpasiya" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             <a href="https://facebook.com/SLPASIYA0222" target="_blank"><i class="fa-brands fa-facebook"></i></a>
