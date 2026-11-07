@@ -3,16 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasindu Visuals | SL PASIYA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Pasindu Visuals | Freelance Photography & Videography</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #0b0c10; color: #fff; font-family: 'Outfit', sans-serif; padding: 2rem; text-align: center; }
-        a { color: #e50914; text-decoration: none; font-weight: bold; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f17;
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            width: 100%;
+            background: #131b29;
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #ff2a2a;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff2a2a;
+            padding-left: 12px;
+        }
+
+        /* Freelance Services Grid */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #1a2332;
+            border: 1px solid #283548;
+            border-radius: 12px;
+            padding: 22px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ff2a2a;
+        }
+
+        .card i {
+            font-size: 2.2rem;
+            color: #ff2a2a;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        /* Showcase / Gallery Section */
+        .portfolio-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #1a2332;
+            border: 1px solid #283548;
+            height: 180px;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(11, 15, 23, 0.9));
+            padding: 15px;
+            color: #ffffff;
+        }
+
+        .portfolio-overlay h4 {
+            font-size: 1rem;
+            color: #ff2a2a;
+        }
+
+        /* Contact & Booking Grid */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #1a2332;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid #283548;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: #ff2a2a;
+        }
+
+        .info-item div h4 {
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .info-item div p, .info-item div a {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-item div a:hover {
+            color: #ff2a2a;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            background: #1a2332;
+            border: 1px solid #283548;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: #ff2a2a;
+            border-color: #ff2a2a;
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: #1a2332;
+            border: 1px solid #283548;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #ff2a2a;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #ff2a2a;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #e02222;
+            box-shadow: 0 0 15px rgba(255, 42, 42, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Pasindu Visuals</h1>
-    <p>Commercial Videography, Motorsport Photography & Freelance Video Editing.</p>
-    <br><a href="index.html">&larr; Back to Home</a>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Pasindu Visuals</h1>
+            <p>Commercial Videography, Motorsport Photography & Creative Production</p>
+        </div>
+
+        <!-- Freelance Services Section -->
+        <h3 class="section-title">My Services</h3>
+        <div class="highlights">
+            <div class="card">
+                <i class="fa-solid fa-camera-retro"></i>
+                <h3>Automotive Photography</h3>
+                <p>Trackside action photography, vehicle shootouts & high-resolution RAW portraits.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-video"></i>
+                <h3>Commercial Videography</h3>
+                <p>Trackside coverage, automotive vlogs, cinematic reels & slow-motion action ramping.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h3>Video Editing & Post Production</h3>
+                <p>Professional video editing, color grading, audio mixing & speed ramping.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-bullhorn"></i>
+                <h3>Content Creation</h3>
+                <p>Short-form social media content (Reels/TikTok/FB) for brands & individual riders.</p>
+            </div>
+        </div>
+
+        <!-- Portfolio Showcase -->
+        <h3 class="section-title">Featured Work</h3>
+        <div class="portfolio-showcase">
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300x200" alt="Motorsport Action">
+                <div class="portfolio-overlay">
+                    <h4>Motorsport Action</h4>
+                    <p>Trackside & Drag Racing</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300x200" alt="Cinematic Video Editing">
+                <div class="portfolio-overlay">
+                    <h4>Cinematic Reels</h4>
+                    <p>Color Graded & Speed Ramped</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300x200" alt="Automotive Photography">
+                <div class="portfolio-overlay">
+                    <h4>Automotive Photography</h4>
+                    <p>High Resolution Shoots</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact & Booking Section -->
+        <h3 class="section-title">Book a Shoot / Work With Me</h3>
+        <div class="contact-container">
+            <!-- Contact Details -->
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Colombo / Kottawa, Sri Lanka</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div>
+                        <h4>Phone / WhatsApp</h4>
+                        <p><a href="https://wa.me/9477XXXXXXX" target="_blank">+94 77 XXX XXXX</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p><a href="mailto:slpasiya@gmail.com">slpasiya@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <div>
+                        <h4>Follow My Work</h4>
+                        <div class="social-links">
+                            <a href="https://facebook.com" target="_blank" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://tiktok.com" target="_blank" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inquiry Form -->
+            <form class="contact-form" action="mailto:slpasiya@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="contact" placeholder="Your Phone or Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="4" placeholder="Tell me about your project (Videography, Shoot, Video Editing...)" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Booking Request</button>
+            </form>
+        </div>
+
+        <!-- Back Button -->
+        <div class="actions">
+            <a href="index.html" class="btn btn-primary" style="background-color: transparent; border: 2px solid #334155;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
 </body>
 </html>
