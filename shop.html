@@ -3,16 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store | SL PASIYA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Shop | SL PASIYA & Pasindu Visuals</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #0b0c10; color: #fff; font-family: 'Outfit', sans-serif; padding: 2rem; text-align: center; }
-        a { color: #e50914; text-decoration: none; font-weight: bold; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f17;
+            color: #e2e8f0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #131b29;
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #ff2a2a;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin: 30px 0 20px 0;
+            border-left: 4px solid #ff2a2a;
+            padding-left: 12px;
+        }
+
+        /* Shop Grid */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: #1a2332;
+            border: 1px solid #283548;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff2a2a;
+        }
+
+        .product-img {
+            height: 200px;
+            background: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .product-info h3 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .product-info .price {
+            color: #ff2a2a;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .product-info p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .product-action {
+            padding: 0 20px 20px 20px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #ff2a2a;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #e02222;
+            box-shadow: 0 0 15px rgba(255, 42, 42, 0.4);
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: #ffffff;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1eb956;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>SL PASIYA Store</h1>
-    <p>Rider gear, apparel, and authentic tech accessories.</p>
-    <br><a href="index.html">&larr; Back to Home</a>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>SL PASIYA Shop</h1>
+            <p>Official Merch, Accessories & Creative Gear Items</p>
+        </div>
+
+        <!-- Products Grid -->
+        <h3 class="section-title">Available Items</h3>
+        <div class="shop-grid">
+            
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/400x300?text=SL+PASIYA+Merch" alt="Product 1">
+                </div>
+                <div class="product-info">
+                    <h3>SL PASIYA Branded T-Shirt / Hoodie</h3>
+                    <div class="price">Rs. X,XXX</div>
+                    <p>High-quality cotton apparel featuring official SL PASIYA branding. Built for comfort and riders.</p>
+                </div>
+                <div class="product-action">
+                    <a href="https://wa.me/9477XXXXXXX?text=Hi!%20I%20want%20to%20buy%20the%20SL%20PASIYA%20Merch" target="_blank" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/400x300?text=Sticker+Pack" alt="Product 2">
+                </div>
+                <div class="product-info">
+                    <h3>Motorsport Sticker Pack</h3>
+                    <div class="price">Rs. XXX</div>
+                    <p>Weatherproof high-durability sticker pack designed for motorcycles, helmets, and laptops.</p>
+                </div>
+                <div class="product-action">
+                    <a href="https://wa.me/9477XXXXXXX?text=Hi!%20I%20want%20to%20buy%20the%20Sticker%20Pack" target="_blank" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Back Button -->
+        <div class="actions">
+            <a href="index.html" class="btn btn-primary" style="background-color: transparent; border: 2px solid #334155; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
 </body>
 </html>
