@@ -123,7 +123,74 @@
 
     <script>
         // මෙහි ඇති "AIzaSy..." කියන තැනට ඔයාගේ සැබෑ Gemini API Key එක දාන්න
-        const GEMINI_API_KEY = "YOUR_ACTUAL_API_KEY_HERE";
+        const GEMINI_API_KEY = "AQ.Ab8RN6J5CvHE6wsF885a3kQZw5hRTmtE8LQJCv9soVM_c8I2uQ";
 
         async function fetchAIComparison() {
-            const bike1 = document
+            const bike1 = document.getElementById('bike1Input').value.trim();
+            const bike2 = document.getElementById('bike2Input').value.trim();
+            const loadingText = document.getElementById('loadingText');
+
+            if (!bike1 || !bike2) {
+                alert("කරුණාකර බයික් දෙකේම නම් ඇතුළත් කරන්න!");
+                return;
+            }
+
+            loadingText.style.display = "block";
+
+            const prompt = `You are a motorcycle comparison expert. Analyze these two vehicles: "${bike1}" and "${bike2}". 
+            FIRST VALIDATE: If either of these is NOT a motorcycle/scooter/dirtbike (e.g., if it's a car, phone, person, or general topic), respond ONLY with valid JSON with an error key: {"error": "Invalid Vehicle"}.
+            Otherwise, return pure JSON matching this exact structure:
+            {
+              "b1": {"name": "${bike1}", "engine": "...", "power": "...", "torque": "...", "weight": "...", "seat": "...", "fuel": "...", "meter": "...", "modes": "...", "abs": "...", "review": "Write a 2-sentence review in Singlish (Sinhala written in English or mixed Sinhala) about how it feels to ride."},
+              "b2": {"name": "${bike2}", "engine": "...", "power": "...", "torque": "...", "weight": "...", "seat": "...", "fuel": "...", "meter": "...", "modes": "...", "abs": "...", "review": "Write a 2-sentence review in Singlish (Sinhala written in English or mixed Sinhala) about how it feels to ride."}
+            }`;
+
+            try {
+                const response = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+                const res = await fetch(response, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                });
+
+                const data = await res.json();
+                
+                if (data.error) {
+                    alert("API Error: " + data.error.message);
+                    return;
+                }
+
+                let textResult = data.candidates[0].content.parts[0].text;
+                textResult = textResult.replace(/```json/g, "").replace(/```/g, "").trim();
+                const json = JSON.parse(textResult);
+
+                if (json.error) {
+                    alert("කරුණාකර යතුරුපැදි (Motorcycles) වල නම් පමණක් ඇතුළත් කරන්න!");
+                } else {
+                    updateCard('b1_', json.b1);
+                    updateCard('b2_', json.b2);
+                }
+            } catch (err) {
+                alert("Fetch Error: API Key එක හෝ අන්තර්ජාල සම්බන්ධතාවය පරීක්ෂා කරන්න.");
+                console.error(err);
+            } finally {
+                loadingText.style.display = "none";
+            }
+        }
+
+        function updateCard(prefix, data) {
+            document.getElementById(prefix + 'name').innerText = data.name;
+            document.getElementById(prefix + 'engine').innerText = data.engine;
+            document.getElementById(prefix + 'power').innerText = data.power;
+            document.getElementById(prefix + 'torque').innerText = data.torque;
+            document.getElementById(prefix + 'weight').innerText = data.weight;
+            document.getElementById(prefix + 'seat').innerText = data.seat;
+            document.getElementById(prefix + 'fuel').innerText = data.fuel;
+            document.getElementById(prefix + 'meter').innerText = data.meter;
+            document.getElementById(prefix + 'modes').innerText = data.modes;
+            document.getElementById(prefix + 'abs').innerText = data.abs;
+            document.getElementById(prefix + 'review').innerText = data.review;
+        }
+    </script>
+</body>
+</html>
