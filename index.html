@@ -3,624 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SL PASIYA | Media, Content Creation & Tech Hub</title>
-    <meta name="description" content="Official website of SL PASIYA (Pasindu Lakshan). Motorcycle reviews, brand promotions, Pasindu Visuals photography, camera gear rentals & tech shop.">
-    
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <title>SL PASIYA - Official Website</title>
     <style>
-        :root {
-            --bg-color: #0b0c10;
-            --card-bg: #1f2833;
-            --accent-red: #e50914;
-            --accent-red-hover: #b80710;
-            --text-main: #ffffff;
-            --text-muted: #c5c6c7;
-            --border-color: #2c3540;
-        }
-
+        /* මූලික Styling */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-            scroll-behavior: smooth;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: #121212;
+            color: #ffffff;
             line-height: 1.6;
         }
 
-        /* Header Navigation */
+        /* Navigation Bar Header */
         header {
-            position: sticky;
-            top: 0;
-            background: rgba(11, 12, 16, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+            background-color: #1f1f1f;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 1.5rem;
+            padding: 15px 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            text-decoration: none;
+            gap: 15px;
         }
-        
-        .site-logo {
+
+        .logo-container img {
+            width: 45px;
             height: 45px;
-            width: auto;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-        
-        .site-logo:hover {
-            transform: scale(1.05);
+            border-radius: 50%;
+            object-fit: cover;
         }
 
-        .nav-links {
+        .logo-container h1 {
+            font-size: 20px;
+            color: #ff3e3e;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
             display: flex;
-            gap: 1.2rem;
             list-style: none;
+            gap: 20px;
         }
 
-        .nav-links a {
-            color: var(--text-muted);
+        nav ul li a {
+            color: #dddddd;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.3s;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--accent-red);
+        nav ul li a:hover, nav ul li a.active {
+            color: #ffffff;
+            background-color: #ff3e3e;
         }
 
         /* Hero Section */
         .hero {
-            padding: 6rem 1.5rem;
+            position: relative;
             text-align: center;
-            max-width: 100%;
-            margin: 0 auto;
-            /* Hero Background Image */
-            background: linear-gradient(rgba(11, 12, 16, 0.55), rgba(11, 12, 16, 0.75)), 
-                        url('Main.jpeg') no-repeat center center/cover;
-            border-bottom: 1px solid var(--border-color);
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Main.jpeg') center/cover no-repeat;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .badge {
-            background-color: rgba(229, 9, 20, 0.15);
-            color: var(--accent-red);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--accent-red);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         .hero p {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Social Stats Bar & Live Counter */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            background: var(--card-bg);
-            padding: 1.2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            position: relative;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent-red);
-        }
-
-        .stat-card.live-card {
-            border-color: var(--accent-red);
-            background: linear-gradient(145deg, #1f2833, #151b22);
-        }
-
-        .stat-number {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--accent-red);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .live-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent-red);
-            border-radius: 50%;
-            margin-right: 5px;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(229, 9, 20, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0); }
-        }
-
-        /* Main Section Container */
-        .section {
-            padding: 4rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-subtitle {
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-        }
-
-        /* Grid Layouts */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-red);
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            color: var(--accent-red);
-            margin-bottom: 1rem;
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Portfolio Visual Items */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .portfolio-item {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            padding: 1.5rem;
-            transition: border-color 0.3s;
-        }
-
-        .portfolio-item:hover {
-            border-color: var(--accent-red);
-        }
-
-        .portfolio-item i {
-            font-size: 2rem;
-            color: var(--accent-red);
-            margin-bottom: 0.8rem;
+            font-size: 18px;
+            max-width: 600px;
+            color: #cccccc;
+            margin-bottom: 25px;
         }
 
         .btn {
             display: inline-block;
-            background: var(--accent-red);
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            background-color: #ff3e3e;
+            color: white;
+            padding: 12px 25px;
             text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s;
-            border: none;
-            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease;
         }
 
         .btn:hover {
-            background: var(--accent-red-hover);
+            background-color: #cc0000;
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--accent-red);
-            color: var(--accent-red);
-        }
-
-        .btn-outline:hover {
-            background: var(--accent-red);
-            color: #fff;
-        }
-
-        /* Personal Bio Section */
-        .personal-card {
-            background: linear-gradient(145deg, #1f2833, #11161d);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .personal-socials {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            margin-top: 1.5rem;
-        }
-
-        .personal-socials a {
-            background: var(--bg-color);
-            color: var(--text-main);
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            border: 1px solid var(--border-color);
-            transition: border-color 0.3s, color 0.3s;
-        }
-
-        .personal-socials a:hover {
-            border-color: var(--accent-red);
-            color: var(--accent-red);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 3rem 1.5rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-icons a {
-            color: var(--text-muted);
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: var(--accent-red);
-        }
-
-        /* Mobile Responsive */
+        /* Responsive Layout for Mobile */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.2rem; }
+            header {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Header & Navigation Bar -->
     <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo-container">
-                <img src="logo.jpg" alt="SL PASIYA Logo" class="site-logo">
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html" style="color: var(--accent-red);">Home</a></li>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="SL PASIYA Logo">
+            <h1>SL PASIYA</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="reviews.html">Reviews & Promotions</a></li>
-                <li><a href="visuals.html">Pasindu Visuals</a></li>
-                <li><a href="rentals.html">Gear Rentals</a></li>
-                <li><a href="shop.html">Store</a></li>
+                <li><a href="rentals.html">Rentals</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="visuals.html">Visuals</a></li>
+                <li><a href="shop.html">Shop</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        </div>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="about-hero">
-        <span class="badge">OFFICIAL MEDIA & TECH HUB</span>
-        <h1>Automotive Creator, Visual Artist & Tech Enthusiast</h1>
-        <p>Raw motorcycle reviews, official brand promotions, Pasindu Visuals production, camera rentals & curated tech accessories.</p>
-        <a href="contact.html" class="btn">Get In Touch</a>
-        
-        <div class="stats-grid">
-            <!-- YouTube Subscriber Counter Card -->
-            <a href="https://youtube.com/@slpasiya" target="_blank" class="stat-card live-card" style="text-decoration: none;">
-                <div class="stat-number" id="yt-live-subs">Loading...</div>
-                <div class="stat-label"><span class="live-dot"></span>Live YouTube Subs</div>
-            </a>
-            
-            <!-- Facebook Card -->
-            <a href="https://www.facebook.com/SLPASIYA0222/" target="_blank" class="stat-card" style="text-decoration: none;">
-                <div class="stat-number">50K+</div>
-                <div class="stat-label">Facebook</div>
-            </a>
-
-            <!-- TikTok Card -->
-            <a href="https://www.tiktok.com/@slpasiya0222" target="_blank" class="stat-card" style="text-decoration: none;">
-                <div class="stat-number">37K+</div>
-                <div class="stat-label">TikTok</div>
-            </a>
-
-            <!-- Instagram Card -->
-            <a href="https://www.instagram.com/slpasiya0222/" target="_blank" class="stat-card" style="text-decoration: none;">
-                <div class="stat-number">1.9K+</div>
-                <div class="stat-label">Instagram</div>
-            </a>
-        </div>
+    <!-- Main Banner / Hero Section -->
+    <section class="hero">
+        <h2>Welcome to SL PASIYA</h2>
+        <p>Automotive Reviews, Motorsport Videography & Equipment Rentals</p>
+        <a href="visuals.html" class="btn">Explore Work</a>
     </section>
 
-    <!-- SL PASIYA Reviews & Brand Promotions Section -->
-    <section class="section" id="reviews">
-        <h2 class="section-title">Reviews & Brand Promotions</h2>
-        <p class="section-subtitle">Motorcycle evaluations, trackside racing vlogs & commercial brand campaigns</p>
-        
-        <div class="grid-3">
-            <div class="card">
-                <i class="fa-solid fa-motorcycle card-icon"></i>
-                <h3>Motorcycle Reviews</h3>
-                <p>Detailed performance breakdowns, meter panel tech, and real-world riding evaluations for modern bikes.</p>
-                <a href="reviews.html" class="btn btn-outline">Watch Reviews</a>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-flag-checkered card-icon"></i>
-                <h3>Motorsport & Track Coverage</h3>
-                <p>High-octane vlogs covering Drag Wars, Supercross events, and motor shows across Sri Lanka.</p>
-                <a href="reviews.html" class="btn btn-outline">Explore Vlogs</a>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-bullhorn card-icon"></i>
-                <h3>Commercial Brand Partnerships</h3>
-                <p>Promotional campaigns for automotive brands, showroom launches, tire test evaluations, and products.</p>
-                <a href="contact.html" class="btn">Partner With Us</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pasindu Visuals Section -->
-    <section class="section" id="visuals">
-        <h2 class="section-title">Pasindu Visuals</h2>
-        <p class="section-subtitle">Commercial Videography, Motorsport Photography & Freelance Video Editing</p>
-        
-        <div class="grid-3">
-            <div class="card">
-                <i class="fa-solid fa-video card-icon"></i>
-                <h3>Automotive & Event Coverage</h3>
-                <p>Cinematic event capture for racing meets, brand showrooms, and commercial video projects.</p>
-                <a href="visuals.html" class="btn btn-outline">Watch Works</a>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-camera card-icon"></i>
-                <h3>Motorsport Photography</h3>
-                <p>High-action RAW photography capturing the intensity of track days, pro riders, and custom builds.</p>
-                <a href="contact.html" class="btn btn-outline">Book Shoot</a>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-film card-icon"></i>
-                <h3>Freelance Video Editing</h3>
-                <p>Short-form vertical reels (TikTok/Shorts) and full-length YouTube reviews color-graded in S-Log3 / D-Log M.</p>
-                <a href="contact.html" class="btn btn-outline">Hire Editor</a>
-            </div>
-        </div>
-
-        <!-- Visual Works Highlight Grid -->
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <i class="fa-solid fa-camera-retro"></i>
-                <h4>Trackside RAW Photography</h4>
-                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem;">Action shots from Drag Wars & Supercross meets.</p>
-            </div>
-            <div class="portfolio-item">
-                <i class="fa-solid fa-clapperboard"></i>
-                <h4>Cinematic Video Production</h4>
-                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem;">Showroom launches & rider feature vlogs.</p>
-            </div>
-            <div class="portfolio-item">
-                <i class="fa-solid fa-sliders"></i>
-                <h4>Pro Color Grading</h4>
-                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem;">S-Log3 & D-Log M workflows converted to Rec.709.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Equipment Rentals Section -->
-    <section class="section" id="rentals">
-        <h2 class="section-title">Camera Gear Rentals</h2>
-        <p class="section-subtitle">Professional production gear available for rent in Kottawa & Mattegoda</p>
-        
-        <div class="grid-3">
-            <div class="card">
-                <i class="fa-solid fa-sliders card-icon"></i>
-                <h3>Gimbals & Stabilization</h3>
-                <p>DJI RS 4 Gimbal & Osmo Pocket 3 setup for ultra-smooth dynamic tracking shots.</p>
-                <a href="rentals.html" class="btn">Inquire Rates</a>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-microphone card-icon"></i>
-                <h3>Audio & Microphones</h3>
-                <p>Boya Mic 2 AI wireless audio receivers & dedicated mics for crystal clear voice logging and interviews.</p>
-                <a href="rentals.html" class="btn">Inquire Rates</a>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-box-open card-icon"></i>
-                <h3>Production Accessories</h3>
-                <p>High-speed memory cards, extra Sony NP-FZ100 batteries, and lighting gear for full-day shoots.</p>
-                <a href="rentals.html" class="btn">Inquire Rates</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Store Section -->
-    <section class="section" id="shop">
-        <h2 class="section-title">SL PASIYA Store</h2>
-        <p class="section-subtitle">Rider gear, apparel, and authentic tech accessories</p>
-        
-        <div class="grid-3">
-            <div class="card">
-                <i class="fa-solid fa-mitten card-icon"></i>
-                <h3>Rider Gloves & Gear</h3>
-                <p>High-quality riding gloves, safety gear, and essentials for everyday and track riders.</p>
-                <a href="shop.html" class="btn btn-outline">View Store</a>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-shirt card-icon"></i>
-                <h3>Shirts & Merch</h3>
-                <p>Exclusive branded T-shirts, hoodies, stickers, and apparel for the SL PASIYA community.</p>
-                <a href="shop.html" class="btn btn-outline">View Store</a>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-bolt card-icon"></i>
-                <h3>Tech Accessories</h3>
-                <p>UGREEN fast chargers, cables, and fast memory cards suitable for high bit-rate video recording.</p>
-                <a href="shop.html" class="btn btn-outline">View Store</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Personal Profile Section -->
-    <section class="section" id="personal">
-        <div class="personal-card">
-            <h2 class="section-title">Behind SL PASIYA</h2>
-            <p style="color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 1.2rem;">
-                Hi, I'm <strong>Pasindu Lakshan</strong> — Automotive Content Creator, Videographer & Founder of SL PASIYA Media & Trading. Connecting motor enthusiasts and creators across Sri Lanka.
-            </p>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Connect with my personal channels below:</p>
-            <div class="personal-socials">
-                <a href="https://facebook.com" target="_blank" title="Personal Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://instagram.com" target="_blank" title="Personal Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://tiktok.com" target="_blank" title="Personal TikTok"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section" id="contact" style="text-align: center;">
-        <h2 class="section-title">Let's Work Together</h2>
-        <p class="section-subtitle">Have a commercial project, event coverage, or rental inquiry?</p>
-        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-            <a href="mailto:lpasindu261@gmail.com" class="btn" style="font-size: 1rem; padding: 0.8rem 1.8rem;">Send Email</a>
-            <a href="https://wa.me/94770000000?text=Hi%20SL%20PASIYA,%20I'd%20like%20to%20discuss%20a%20project." target="_blank" class="btn btn-outline" style="font-size: 1rem; padding: 0.8rem 1.8rem;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div style="margin-bottom: 1.5rem;">
-            <img src="logo.jpg" alt="SL PASIYA Logo" style="height: 40px; width: auto;">
-        </div>
-        <div class="social-icons">
-            <a href="https://youtube.com/@slpasiya" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://facebook.com/SLPASIYA0222" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://instagram.com/slpasiya0222" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://tiktok.com/@slpasiya0222" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-        <p>&copy; 2026 SL PASIYA MEDIA & TRADING. All Rights Reserved.</p>
-    </footer>
-
-    <!-- YouTube Live Subscriber Fetch Script -->
-    <script>
-        async function fetchLiveYtSubscribers() {
-            const apiKey = 'AIzaSyBkpLARy9hBlBdOcd-QtuHCTUfP6d0bgcg';
-            const channelId = 'UCWj4YlsI2lhzVFgpcBRl8jw'; 
-            
-            const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
-
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                
-                if (data.items && data.items.length > 0) {
-                    const count = Number(data.items[0].statistics.subscriberCount);
-                    
-                    let formattedCount;
-                    if (count >= 1000000) {
-                        formattedCount = (count / 1000000).toFixed(1) + 'M';
-                    } else if (count >= 1000) {
-                        formattedCount = (count / 1000).toFixed(1) + 'K';
-                    } else {
-                        formattedCount = count;
-                    }
-
-                    document.getElementById('yt-live-subs').innerText = formattedCount;
-                } else {
-                    document.getElementById('yt-live-subs').innerText = 'Unavailable';
-                }
-            } catch (error) {
-                console.error('YouTube Live Counter Error:', error);
-                document.getElementById('yt-live-subs').innerText = 'Error';
-            }
-        }
-
-        fetchLiveYtSubscribers();
-        setInterval(fetchLiveYtSubscribers, 120000);
-    </script>
 </body>
 </html>
