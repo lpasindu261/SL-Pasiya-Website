@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bike Comparison & Database | SL PASIYA</title>
+    <title>Ultimate Bike Comparison & Database | SL PASIYA</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -21,7 +21,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             background: #131b29;
             border: 1px solid #1e293b;
@@ -59,7 +59,7 @@
             margin-bottom: 30px;
         }
 
-        /* Search & Select Section */
+        /* Selection Bar */
         .compare-selector {
             display: grid;
             grid-template-columns: 1fr 1fr auto;
@@ -125,21 +125,31 @@
         }
 
         .bike-card h3 {
-            color: #ffffff;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
             color: #ff2a2a;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #283548;
+            padding-bottom: 10px;
+        }
+
+        .spec-category {
+            font-size: 0.9rem;
+            color: #ff2a2a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
 
         .bike-spec-list {
             list-style: none;
-            margin-top: 15px;
         }
 
         .bike-spec-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #283548;
-            font-size: 0.95rem;
+            padding: 6px 0;
+            border-bottom: 1px dashed #283548;
+            font-size: 0.9rem;
             display: flex;
             justify-content: space-between;
         }
@@ -149,13 +159,14 @@
         }
 
         .sinhala-review {
-            margin-top: 15px;
+            margin-top: 20px;
             background: #0f172a;
-            padding: 12px;
+            padding: 15px;
             border-radius: 8px;
             font-size: 0.9rem;
             color: #cbd5e1;
             line-height: 1.6;
+            border-left: 3px solid #ff2a2a;
         }
 
         .actions {
@@ -189,43 +200,57 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>Bike Comparison & Database</h1>
-            <p>SL PASIYA Motorcycle Specs & Sinhala Review Hub</p>
+            <h1>Ultimate Bike Database & Compare</h1>
+            <p>SL PASIYA Complete Motorcycle Specifications & Sinhala Review Hub</p>
         </div>
 
         <!-- Notice Banner -->
         <div class="notice-banner">
-            <i class="fa-solid fa-triangle-exclamation"></i> මේක බයික් ඩේටා සහ රිවීව් බලන්න විතරයි. වෙබ් අඩවිය තුළ සෘජුව මිලදී ගැනීමට ස්ටොක් (Stock) නොමැත.
+            <i class="fa-solid fa-triangle-exclamation"></i> මේක බයික් ඩේටා, ස්පೆක්ස් සහ රිවීව් බලන්න විතරයි. වෙබ් අඩවිය තුළ සෘජුව මිලදී ගැනීමට ස්ටොක් (Stock) නොමැත.
         </div>
 
         <!-- Selection Bar -->
         <div class="compare-selector">
             <select id="bike1Select">
-                <option value="">-- First Bike එක තෝරන්න --</option>
                 <option value="cfmoto450mt">CFMOTO 450MT</option>
                 <option value="ktm390adv">KTM 390 Adventure</option>
             </select>
 
             <select id="bike2Select">
-                <option value="">-- Second Bike එක තෝරන්න --</option>
-                <option value="cfmoto450mt">CFMOTO 450MT</option>
                 <option value="ktm390adv">KTM 390 Adventure</option>
+                <option value="cfmoto450mt">CFMOTO 450MT</option>
             </select>
 
-            <button class="btn-compare" onclick="alert('Compare feature එක Load වෙනවා!')">Compare කරන්න</button>
+            <button class="btn-compare">Compare කරන්න</button>
         </div>
 
-        <!-- Comparison Display Section (Sample) -->
+        <!-- Comparison Display Section -->
         <div class="comparison-result">
             <!-- Bike 1 -->
             <div class="bike-card">
-                <h3>CFMOTO 450MT</h3>
+                <h3 id="bike1Name">CFMOTO 450MT</h3>
+                
+                <div class="spec-category">Engine & Performance</div>
                 <ul class="bike-spec-list">
-                    <li><span>Engine:</span> 449.5cc, Parallel Twin</li>
-                    <li><span>Power:</span> 41 HP @ 8500 rpm</li>
-                    <li><span>Weight:</span> 175 kg</li>
-                    <li><span>ABS & TC:</span> Switchable Bosch ABS & TC</li>
+                    <li><span>Engine Type:</span> 449.5cc, Parallel Twin</li>
+                    <li><span>Max Power:</span> 41 HP @ 8500 rpm</li>
+                    <li><span>Max Torque:</span> 44 Nm @ 6250 rpm</li>
                 </ul>
+
+                <div class="spec-category">Dimensions & Weight</div>
+                <ul class="bike-spec-list">
+                    <li><span>Kerb Weight:</span> 175 kg</li>
+                    <li><span>Seat Height:</span> 820mm / 800mm (Adjustable)</li>
+                    <li><span>Fuel Capacity:</span> 17.5 Litres</li>
+                </ul>
+
+                <div class="spec-category">Tech & Electronics</div>
+                <ul class="bike-spec-list">
+                    <li><span>Meter Panel:</span> 5-inch TFT Display (Bluetooth)</li>
+                    <li><span>Riding Modes:</span> Rain & Off-Road Modes</li>
+                    <li><span>ABS & TC:</span> Switchable Bosch ABS & Traction Control</li>
+                </ul>
+
                 <div class="sinhala-review">
                     <strong>Pasiya's Review:</strong> මේ බයික් එක off-road වලදී patta comfort එකක් දෙනවා. Twin engine එකේ sound එකත් maxxa. Suspension setup එකත් lankාවේ පාරවලට hondටම set වෙනවා.
                 </div>
@@ -233,13 +258,29 @@
 
             <!-- Bike 2 -->
             <div class="bike-card">
-                <h3>KTM 390 Adventure</h3>
+                <h3 id="bike2Name">KTM 390 Adventure</h3>
+                
+                <div class="spec-category">Engine & Performance</div>
                 <ul class="bike-spec-list">
-                    <li><span>Engine:</span> 373.2cc, Single Cylinder</li>
-                    <li><span>Power:</span> 43 HP @ 9000 rpm</li>
-                    <li><span>Weight:</span> 177 kg</li>
+                    <li><span>Engine Type:</span> 373.2cc, Single Cylinder</li>
+                    <li><span>Max Power:</span> 43 HP @ 9000 rpm</li>
+                    <li><span>Max Torque:</span> 37 Nm @ 7000 rpm</li>
+                </ul>
+
+                <div class="spec-category">Dimensions & Weight</div>
+                <ul class="bike-spec-list">
+                    <li><span>Kerb Weight:</span> 177 kg</li>
+                    <li><span>Seat Height:</span> 855 mm</li>
+                    <li><span>Fuel Capacity:</span> 14.5 Litres</li>
+                </ul>
+
+                <div class="spec-category">Tech & Electronics</div>
+                <ul class="bike-spec-list">
+                    <li><span>Meter Panel:</span> 5-inch TFT Display with Smartphone Connectivity</li>
+                    <li><span>Riding Modes:</span> Street & Off-Road Riding Modes</li>
                     <li><span>ABS & TC:</span> Cornering ABS & MTC</li>
                 </ul>
+
                 <div class="sinhala-review">
                     <strong>Pasiya's Review:</strong> Pick-up එක නම් අחר අතට patta aggressive. High-speed track වලත් cornering handling එක අතිශයින්ම niyamai. Single cylinder vibration එක පොඩි එකක් තියෙනවා.
                 </div>
@@ -254,3 +295,10 @@
 
 </body>
 </html>
+```[cite: 3]
+
+### මෙහි විශේෂතා:
+1. **පූර්ණ විස්තර (Full Specifications):** දැන් මෙහි Engine, Dimensions & Weight (සීට් හයිට්, බර, ෆියුල් ටැංකි ධාරිතාව), Tech & Electronics (මීටර් පැනල්, රයිඩින් මෝඩ්ස්, ABS) සහ Pasiya's Sinhala Review යන සියල්ල අංශ වශයෙන් පිළිවෙළට දක්වා ඇත[cite: 3].
+2. **সম্পූර්ණ ස්වාධීනයි (No Personal/Car mix):** මෙයට වෙනත් පෞද්ගලික දත්ත, කාර් හෝ වෙනත් දේ සම්බන්ධ වන්නේ නැත. මෙහි ඇත්තේ බයික් තොරතුරු පමණි[cite: 3].
+
+ඔයාට GitHub එකේ **`bikes.html`** ගොනුවට මෙම කෝඩ් එක දාලා Save කරලා Live බලාගන්න පුළුවන්[cite: 3]!
