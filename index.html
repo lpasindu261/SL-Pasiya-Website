@@ -54,6 +54,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 1.5rem;
+            position: relative;
         }
 
         .logo-container {
@@ -77,6 +78,7 @@
             display: flex;
             gap: 1.2rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -91,13 +93,22 @@
             color: var(--accent-red);
         }
 
+        /* Hamburger Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         /* Hero Section */
         .hero {
             padding: 6rem 1.5rem;
             text-align: center;
             max-width: 100%;
             margin: 0 auto;
-            /* Hero Background Image */
             background: linear-gradient(rgba(11, 12, 16, 0.55), rgba(11, 12, 16, 0.75)), 
                         url('Main.jpeg') no-repeat center center/cover;
             border-bottom: 1px solid var(--border-color);
@@ -201,7 +212,6 @@
             margin-bottom: 2.5rem;
         }
 
-        /* Grid Layouts */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -238,7 +248,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Portfolio Visual Items */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -294,7 +303,6 @@
             color: #fff;
         }
 
-        /* Personal Bio Section */
         .personal-card {
             background: linear-gradient(145deg, #1f2833, #11161d);
             border: 1px solid var(--border-color);
@@ -331,7 +339,6 @@
             color: var(--accent-red);
         }
 
-        /* Footer */
         footer {
             border-top: 1px solid var(--border-color);
             padding: 3rem 1.5rem;
@@ -357,9 +364,30 @@
             color: var(--accent-red);
         }
 
-        /* Mobile Responsive */
+        /* Mobile Responsive Styles & Hamburger Menu */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(11, 12, 16, 0.98);
+                border-bottom: 1px solid var(--border-color);
+                padding: 1.5rem 0;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
             .hero h1 { font-size: 2.2rem; }
         }
     </style>
@@ -372,7 +400,12 @@
             <a href="index.html" class="logo-container">
                 <img src="logo.jpg" alt="SL PASIYA Logo" class="site-logo">
             </a>
-            <ul class="nav-links">
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" style="color: var(--accent-red);">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="reviews.html">Reviews & Promotions</a></li>
@@ -585,8 +618,25 @@
         <p>&copy; 2026 SL PASIYA MEDIA & TRADING. All Rights Reserved.</p>
     </footer>
 
-    <!-- YouTube Live Subscriber Fetch Script -->
+    <!-- YouTube Live Subscriber & Mobile Menu Toggle Script -->
     <script>
+        // Mobile Hamburger Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // YouTube Live Subscriber Counter
         async function fetchLiveYtSubscribers() {
             const apiKey = 'AIzaSyBkpLARy9hBlBdOcd-QtuHCTUfP6d0bgcg';
             const channelId = 'UCWj4YlsI2lhzVFgpcBRl8jw'; 
