@@ -12,11 +12,87 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: #0b0f17;
             color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Navigation Styles */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(11, 15, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .site-logo {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+        
+        .site-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff2a2a;
+        }
+
+        /* Hamburger Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Wrapper */
+        .main-wrapper {
+            flex: 1;
             padding: 40px 20px;
         }
 
@@ -37,7 +113,7 @@
         }
 
         .brand-logo img {
-            max-height: 70px; /* ලෝගෝ එකේ උස අවශ්‍ය පරිදි අඩු වැඩි කරගත හැක */
+            max-height: 70px;
             width: auto;
             object-fit: contain;
             border-radius: 8px;
@@ -195,7 +271,30 @@
             color: #ff2a2a;
         }
 
-        @media (max-width: 600px) {
+        /* Mobile Responsive Styles & Hamburger Menu */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(11, 15, 23, 0.98);
+                border-bottom: 1px solid #1e293b;
+                padding: 1.5rem 0;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
             .container {
                 padding: 20px;
             }
@@ -207,129 +306,172 @@
 </head>
 <body>
 
-    <div class="container">
-        <!-- Brand Logo Image -->
-        <div class="brand-logo">
-            <a href="index.html">
-                <img src="logo.jpg" alt="SL PASIYA Logo">
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="logo.jpg" alt="SL PASIYA Logo" class="site-logo">
             </a>
-        </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
-        <!-- Header -->
-        <div class="header">
-            <h1>Reviews, Vlogs & Shorts Hub</h1>
-            <p>In-Depth Motorcycle Reviews, Trackside Vlogs, Comparisons & Quick Reels</p>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reviews.html" style="color: #ff2a2a;">Reviews & Promotions</a></li>
+                <li><a href="visuals.html">Pasindu Visuals</a></li>
+                <li><a href="rentals.html">Gear Rentals</a></li>
+                <li><a href="shop.html">Store</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
+    </header>
 
-        <!-- 1. Latest Motorcycle Reviews (6 Videos) -->
-        <h3 class="section-title">Latest Motorcycle Reviews</h3>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/oJVnpyBjk6I?si=KPBK9QNivMhUexqd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>Yamaha YZ 450F 2022 | ලංකාවේ වේගවත්ම 450cc Monster එක! 🔥</h3></div>
+    <div class="main-wrapper">
+        <div class="container">
+            <!-- Brand Logo Image -->
+            <div class="brand-logo">
+                <a href="index.html">
+                    <img src="logo.jpg" alt="SL PASIYA Logo">
+                </a>
             </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/sAydhGXXVzg?si=B4L0cYK4ZM8quvw3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>ලංකාවට ආපු CFMOTO අලුත්ම Superbikes & Electric Bikes Prices! | CFMOTO කියන තරම් ලාභද?</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/K95CrlVZSGc?si=nynU9lMtnkyRWaCJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>TVS Sport 110 EFI Review Sinhala | Best Mileage Bike in Sri Lanka? 🇱🇰</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/yMuiapB7cZI?si=yT7tuR_aRh7kX1-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>Hero Xoom 125R Full Review Sinhala | Price, Mileage & Top Speed in Sri Lanka</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/M81jV3uwX_I?si=UYZO7Nx1aH4p6UO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>Suzuki Inazuma 400 Review Sinhala | කාර් එකක වගේ Alternator එකක් එක්ක | 4 Bike only in Sri Lanka 🇱🇰</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/2-47qucwfzI?si=oNO81e5W6OOytAwk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>KTM Duke 250 Full Review Sinhala | ලක්ෂ 18කට ගන්න එක ඇත්තටම පාඩුද?</h3></div>
-            </div>
-        </div>
 
-        <!-- 2. Trackside & Touring Vlogs (6 Videos) -->
-        <h3 class="section-title">Trackside & Touring Vlogs</h3>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/NKVSJOIom1I?si=QWEoWWqPHBnUfPB-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>ලංකාවේ පලවෙනි වතාවට රේස් 4ම දින්න Nikila Pathirage | Katukurunda Circuit Meet 2026 Race Day Vlog</h3></div>
+            <!-- Header -->
+            <div class="header">
+                <h1>Reviews, Vlogs & Shorts Hub</h1>
+                <p>In-Depth Motorcycle Reviews, Trackside Vlogs, Comparisons & Quick Reels</p>
             </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/K83nteJ_-Ow?si=l-aScIc_fZSpRlZh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>ලංකාවේ වේගවත්ම රාක්ෂයෝ ඩ්‍රැග් Race එකක! | Wurth Drag Wars 2026 Full Vlog</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/zYQWZy-rU2Q?si=_8tsGpQJj24r1tuN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>Chaly Motocross race in Sri Lanka | හෝමාගම චැලි රේස් එකේ මොකද වුනේ?</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/7jmyV79Znhg?si=A-7TpltFvmlZgtgq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>World Motorcycle Day 2025 Sri Lanka | ලෝක යතුරුපැදි දිනය යක්කු ගොඩක් පිරුණු තැනක</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/q_STqa1_cZA?si=zgzubpe6aXeut8AN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>TVS iQube S Electric Scooter | දවස් තුනට 340Km ක් ගියා | Honest Owner Review After Real Use!</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/M5-sY_WUlIE?si=VWnu81sm9LKyEOHh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>Motorcycle Tour 2025 in Anuradapura | එන්න බයික් 17 එක්ක අනුරාධපුර යන්න Part 01</h3></div>
-            </div>
-        </div>
 
-        <!-- 3. Bike Comparisons (6 Videos) -->
-        <h3 class="section-title">Bike Comparisons</h3>
-        <div class="comparison-grid">
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/E_vRkNcZ6h8?si=DPbysbTLUOg7JA0a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>Bajaj Pulsar N160 vs Hero Hunk 160R | Full Comparison Review in Sinhala 🇱🇰</h3></div>
+            <!-- 1. Latest Motorcycle Reviews (6 Videos) -->
+            <h3 class="section-title">Latest Motorcycle Reviews</h3>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/oJVnpyBjk6I?si=KPBK9QNivMhUexqd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>Yamaha YZ 450F 2022 | ලංකාවේ වේගවත්ම 450cc Monster එක! 🔥</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/sAydhGXXVzg?si=B4L0cYK4ZM8quvw3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>ලංකාවට ආපු CFMOTO අලුත්ම Superbikes & Electric Bikes Prices! | CFMOTO කියන තරම් ලාභද?</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/K95CrlVZSGc?si=nynU9lMtnkyRWaCJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>TVS Sport 110 EFI Review Sinhala | Best Mileage Bike in Sri Lanka? 🇱🇰</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/yMuiapB7cZI?si=yT7tuR_aRh7kX1-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>Hero Xoom 125R Full Review Sinhala | Price, Mileage & Top Speed in Sri Lanka</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/M81jV3uwX_I?si=UYZO7Nx1aH4p6UO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>Suzuki Inazuma 400 Review Sinhala | කාර් එකක වගේ Alternator එකක් එක්ක | 4 Bike only in Sri Lanka 🇱🇰</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/2-47qucwfzI?si=oNO81e5W6OOytAwk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>KTM Duke 250 Full Review Sinhala | ලක්ෂ 18කට ගන්න එක ඇත්තටම පාඩුද?</h3></div>
+                </div>
             </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/ASr5QdlHExU?si=6J7saCxbKmv53uJj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>KTM Duke 250 vs HONDA Hornet 250 | Full Comparison Review in Sinhala 🇱🇰 අලුත් එකක්ද? පරණ එකක්ද?</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/0I0XADLaB5I?si=1LV7VBVJg6EXVheT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>CFMoto 450MT vs KTM 390 Adventure Sri Lanka Review | Price & Full Comparison | මොකක්ද හොදම</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/ySOguBBmwgg?si=98izVj--prtA1ZdN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>Honda AX-1 vs Yamaha TW 200 / 225 compare video in Sinhala | Sri Lanka</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/oLgIxj8d6oQ?si=fxQKiL26U-Mya3QI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>Honda Hornet 250 (cb250f) vs Yamaha WR250x compare video in Sinhala | Sri Lanka</h3></div>
-            </div>
-            <div class="video-card">
-                <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/E9WM6kVybSg?si=xviN_mM6MdH4sYXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                <div class="video-info"><h3>Bajaj Pulsar NS 200 vs Yamaha TZR 125 YPVS review in Sinhala | Sri Lanka</h3></div>
-            </div>
-        </div>
 
-        <!-- 4. Shorts & Quick Reels -->
-        <h3 class="section-title">Shorts & Quick Reels</h3>
-        <div class="shorts-grid">
-            <div class="short-card">
-                <div class="short-wrapper"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7567944754952981778" data-video-id="7567944754952981778" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Hero Hunk 160R Short Review ❤ </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script></div>
+            <!-- 2. Trackside & Touring Vlogs (6 Videos) -->
+            <h3 class="section-title">Trackside & Touring Vlogs</h3>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/NKVSJOIom1I?si=QWEoWWqPHBnUfPB-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>ලංකාවේ පලවෙනි වතාවට රේස් 4ම දින්න Nikila Pathirage | Katukurunda Circuit Meet 2026 Race Day Vlog</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/K83nteJ_-Ow?si=l-aScIc_fZSpRlZh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>ලංකාවේ වේගවත්ම රාක්ෂයෝ ඩ්‍රැග් Race එකක! | Wurth Drag Wars 2026 Full Vlog</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/zYQWZy-rU2Q?si=_8tsGpQJj24r1tuN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>Chaly Motocross race in Sri Lanka | හෝමාගම චැලි රේස් එකේ මොකද වුනේ?</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/7jmyV79Znhg?si=A-7TpltFvmlZgtgq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>World Motorcycle Day 2025 Sri Lanka | ලෝක යතුරුපැදි දිනය යක්කු ගොඩක් පිරුණු තැනක</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/q_STqa1_cZA?si=zgzubpe6aXeut8AN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>TVS iQube S Electric Scooter | දවස් තුනට 340Km ක් ගියා | Honest Owner Review After Real Use!</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/M5-sY_WUlIE?si=VWnu81sm9LKyEOHh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>Motorcycle Tour 2025 in Anuradapura | එන්න බයික් 17 එක්ක අනුරාධපුර යන්න Part 01</h3></div>
+                </div>
             </div>
-            <div class="short-card">
-                <div class="short-wrapper"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7701656456940064007" data-video-id="7701656456940064007" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Yamaha YZ 450F (2022) Beast </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script></div>
-            </div>
-            <div class="short-card">
-                <div class="short-wrapper"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7676445040486403335" data-video-id="7676445040486403335" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> KTM DUKE 250 🧡🤍✨ </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script></div>
-            </div>
-            <div class="short-card">
-                <div class="short-wrapper"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7499073069806341394" data-video-id="7499073069806341394" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Brand New Hero Bikes </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script></div>
-            </div>
-        </div>
 
-        <!-- Back Button -->
-        <div class="actions">
-            <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+            <!-- 3. Bike Comparisons (6 Videos) -->
+            <h3 class="section-title">Bike Comparisons</h3>
+            <div class="comparison-grid">
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/E_vRkNcZ6h8?si=DPbysbTLUOg7JA0a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>Bajaj Pulsar N160 vs Hero Hunk 160R | Full Comparison Review in Sinhala 🇱🇰</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/ASr5QdlHExU?si=6J7saCxbKmv53uJj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>KTM Duke 250 vs HONDA Hornet 250 | Full Comparison Review in Sinhala 🇱🇰 අලුත් එකක්ද? පරණ එකක්ද?</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/0I0XADLaB5I?si=1LV7VBVJg6EXVheT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>CFMoto 450MT vs KTM 390 Adventure Sri Lanka Review | Price & Full Comparison | මොකක්ද හොදම</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/ySOguBBmwgg?si=98izVj--prtA1ZdN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>Honda AX-1 vs Yamaha TW 200 / 225 compare video in Sinhala | Sri Lanka</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/oLgIxj8d6oQ?si=fxQKiL26U-Mya3QI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>Honda Hornet 250 (cb250f) vs Yamaha WR250x compare video in Sinhala | Sri Lanka</h3></div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/E9WM6kVybSg?si=xviN_mM6MdH4sYXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="video-info"><h3>Bajaj Pulsar NS 200 vs Yamaha TZR 125 YPVS review in Sinhala | Sri Lanka</h3></div>
+                </div>
+            </div>
+
+            <!-- 4. Shorts & Quick Reels -->
+            <h3 class="section-title">Shorts & Quick Reels</h3>
+            <div class="shorts-grid">
+                <div class="short-card">
+                    <div class="short-wrapper"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7567944754952981778" data-video-id="7567944754952981778" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Hero Hunk 160R Short Review ❤ </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script></div>
+                </div>
+                <div class="short-card">
+                    <div class="short-wrapper"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7701656456940064007" data-video-id="7701656456940064007" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Yamaha YZ 450F (2022) Beast </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script></div>
+                </div>
+                <div class="short-card">
+                    <div class="short-wrapper"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7676445040486403335" data-video-id="7676445040486403335" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> KTM DUKE 250 🧡🤍✨ </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script></div>
+                </div>
+                <div class="short-card">
+                    <div class="short-wrapper"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7499073069806341394" data-video-id="7499073069806341394" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Brand New Hero Bikes </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script></div>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <div class="actions">
+                <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+            </div>
         </div>
     </div>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 
 </body>
 </html>
