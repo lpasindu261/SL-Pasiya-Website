@@ -34,6 +34,24 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
+        /* Brand Logo Style */
+        .brand-logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .brand-logo img {
+            max-height: 70px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .brand-logo img:hover {
+            transform: scale(1.05);
+        }
+
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -275,6 +293,13 @@
 <body>
 
     <div class="container">
+        <!-- Brand Logo Image -->
+        <div class="brand-logo">
+            <a href="index.html">
+                <img src="logo.jpg" alt="SL PASIYA Logo">
+            </a>
+        </div>
+
         <!-- Header -->
         <div class="header">
             <h1>Behind SL PASIYA</h1>
@@ -289,7 +314,7 @@
             <div class="profile-bio">
                 <h2>Hi, I'm Pasindu Lakshan</h2>
                 <p>
-                    Automotive Content Creator, Videographer, and Founder of <strong>SL PASIYA </strong>. 
+                    Automotive Content Creator, Videographer, and Founder of <strong>SL PASIYA</strong>. 
                     I specialize in high-energy motorsport videography, trackside coverage, motorcycle reviews, and cinematic automotive storytelling.
                 </p>
             </div>
@@ -333,8 +358,7 @@
                     <i class="fa-brands fa-whatsapp"></i>
                     <div>
                         <h4>Phone / WhatsApp</h4>
-                        <!-- 9477XXXXXXX කියන තැනට 0 නැතුව ඔයාගේ අංකය ඇතුළත් කරන්න -->
-                        <p><a href="https://wa.me/9477XXXXXXX" target="_blank">+94 77 865 1647</a></p>
+                        <p><a href="https://wa.me/94778651647" target="_blank">+94 77 865 1647</a></p>
                     </div>
                 </div>
 
@@ -363,7 +387,7 @@
             </div>
 
             <!-- Quick Inquiry Form -->
-            <form class="contact-form" action="mailto:slpasiya@gmail.com" method="post" enctype="text/plain">
+            <form class="contact-form" action="mailto:lpasindu261@gmail.com" method="post" enctype="text/plain">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Your Name" required>
                 </div>
