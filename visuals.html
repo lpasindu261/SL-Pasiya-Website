@@ -12,16 +12,91 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: #0b0f17;
             color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Navigation Styles */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(11, 15, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .site-logo {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+        
+        .site-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff2a2a;
+        }
+
+        /* Hamburger Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Wrapper */
+        .main-wrapper {
+            flex: 1;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 40px 20px;
         }
 
         .container {
@@ -118,7 +193,7 @@
             line-height: 1.5;
         }
 
-        /* Video Showcase Grid - Fixed for 4 items per row and alignment */
+        /* Video Showcase Grid */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -154,7 +229,6 @@
             margin-bottom: 12px;
         }
 
-        /* Fix TikTok & Instagram blockquote responsiveness */
         .video-container blockquote.tiktok-embed,
         .video-container blockquote.instagram-media {
             width: 100% !important;
@@ -301,7 +375,30 @@
             box-shadow: 0 0 15px rgba(255, 42, 42, 0.4);
         }
 
-        @media (max-width: 600px) {
+        /* Mobile Responsive Styles & Hamburger Menu */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(11, 15, 23, 0.98);
+                border-bottom: 1px solid #1e293b;
+                padding: 1.5rem 0;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
             .container {
                 padding: 25px;
             }
@@ -313,336 +410,379 @@
 </head>
 <body>
 
-    <div class="container">
-        <!-- Brand Logo -->
-        <div class="brand-logo">
-            <a href="index.html">
-                <img src="Pasindu Visuals Logo.jpg" alt="Pasindu Visuals Logo">
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="Pasindu Visuals Logo.jpg" alt="Pasindu Visuals Logo" class="site-logo">
             </a>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reviews.html">Reviews & Promotions</a></li>
+                <li><a href="visuals.html" style="color: #ff2a2a;">Pasindu Visuals</a></li>
+                <li><a href="rentals.html">Gear Rentals</a></li>
+                <li><a href="shop.html">Store</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
+    </header>
 
-        <!-- Header -->
-        <div class="header">
-            <h1>Pasindu Visuals</h1>
-            <p>Commercial Videography, Motorsport Photography & Creative Production</p>
-        </div>
+    <div class="main-wrapper">
+        <div class="container">
+            <!-- Brand Logo -->
+            <div class="brand-logo">
+                <a href="index.html">
+                    <img src="Pasindu Visuals Logo.jpg" alt="Pasindu Visuals Logo">
+                </a>
+            </div>
 
-        <!-- Freelance Services Section -->
-        <h3 class="section-title">My Services</h3>
-        <div class="highlights">
-            <div class="card">
-                <i class="fa-solid fa-camera-retro"></i>
-                <h3>Automotive Photography</h3>
-                <p>Trackside action photography, vehicle shootouts & high-resolution RAW portraits.</p>
+            <!-- Header -->
+            <div class="header">
+                <h1>Pasindu Visuals</h1>
+                <p>Commercial Videography, Motorsport Photography & Creative Production</p>
             </div>
-            <div class="card">
-                <i class="fa-solid fa-video"></i>
-                <h3>Commercial Videography</h3>
-                <p>Trackside coverage, automotive vlogs, cinematic reels & slow-motion action ramping.</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                <h3>Video Editing & Post Production</h3>
-                <p>Professional video editing, color grading, audio mixing & speed ramping.</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-bullhorn"></i>
-                <h3>Content Creation</h3>
-                <p>Short-form social media content (Reels/TikTok/FB) for brands & individual riders.</p>
-            </div>
-        </div>
 
-        <!-- Featured Client Videos (20 Videos Grid) -->
-        <h3 class="section-title">Featured Client Videos</h3>
-        <div class="video-grid">
-            <!-- Video 1 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jshark_99/video/7690978302038936839" data-video-id="7690978302038936839"> <section> <a target="_blank" title="@jshark_99" href="https://www.tiktok.com/@jshark_99?refer=embed">@jshark_99</a> Gunner Supercross 2026</section> </blockquote>
+            <!-- Freelance Services Section -->
+            <h3 class="section-title">My Services</h3>
+            <div class="highlights">
+                <div class="card">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <h3>Automotive Photography</h3>
+                    <p>Trackside action photography, vehicle shootouts & high-resolution RAW portraits.</p>
                 </div>
-                <div class="video-info">
-                    <h4>Motorsport Trackside Vlog</h4>
-                    <p>Commercial Coverage & Editing</p>
+                <div class="card">
+                    <i class="fa-solid fa-video"></i>
+                    <h3>Commercial Videography</h3>
+                    <p>Trackside coverage, automotive vlogs, cinematic reels & slow-motion action ramping.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <h3>Video Editing & Post Production</h3>
+                    <p>Professional video editing, color grading, audio mixing & speed ramping.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <h3>Content Creation</h3>
+                    <p>Short-form social media content (Reels/TikTok/FB) for brands & individual riders.</p>
                 </div>
             </div>
 
-            <!-- Video 2 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shelllubricantssrilanka/video/7598500594747182337" data-video-id="7598500594747182337"> <section> <a target="_blank" title="@shelllubricantssrilanka" href="https://www.tiktok.com/@shelllubricantssrilanka?refer=embed">@shelllubricantssrilanka</a> Shell Helix Feature</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Automotive Review Feature</h4>
-                    <p>Cinematic Videography & Sound Design</p>
-                </div>
-            </div>
-
-            <!-- Video 3 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@nihariperera2/video/7570374482737646869" data-video-id="7570374482737646869"> <section> <a target="_blank" title="@nihariperera2" href="https://www.tiktok.com/@nihariperera2?refer=embed">@nihariperera2</a> Event Feature</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Event Feature</h4>
-                    <p>Cinematic Videography & Sound Design</p>
-                </div>
-            </div>
-
-            <!-- Video 4 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7693141427777178900" data-video-id="7693141427777178900"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Katukurunda Racing</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Katukurunda Racing Record</h4>
-                    <p>High-Speed Action Coverage</p>
-                </div>
-            </div>
-
-            <!-- Video 5 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7629708933833166087" data-video-id="7629708933833166087"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> TVS Eurogrip Feature</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>TVS Eurogrip Feature</h4>
-                    <p>Promotional Brand Content</p>
-                </div>
-            </div>
-
-            <!-- Video 6 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7698003918155943220" data-video-id="7698003918155943220"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Whoops section magic</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Slow-Mo Action Capture</h4>
-                    <p>Supercross Trackside Coverage</p>
-                </div>
-            </div>
-
-            <!-- Video 7 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jshark_99/video/7627803858386849032" data-video-id="7627803858386849032"> <section> <a target="_blank" title="@jshark_99" href="https://www.tiktok.com/@jshark_99?refer=embed">@jshark_99</a> Rider Recovery</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Rider Recovery & Comeback</h4>
-                    <p>Documentary & Storytelling</p>
-                </div>
-            </div>
-
-            <!-- Video 8 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7641197797177445639" data-video-id="7641197797177445639"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Suzuki Inazuma Review</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Suzuki Inazuma 400 Review</h4>
-                    <p>In-Depth Motorcycle Review</p>
-                </div>
-            </div>
-
-            <!-- Video 9 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRXD9XPiLJy/" data-instgrm-version="14"></blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Instagram Reel Showcase</h4>
-                    <p>Cinematic Social Media Content</p>
-                </div>
-            </div>
-
-            <!-- Video 10 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shelllubricantssrilanka/video/7577702081973210385" data-video-id="7577702081973210385"> <section> <a target="_blank" title="@shelllubricantssrilanka" href="https://www.tiktok.com/@shelllubricantssrilanka?refer=embed">@shelllubricantssrilanka</a> Shell Rimula Bundle</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Shell Rimula Bundle Offer</h4>
-                    <p>Promotional Brand Content</p>
-                </div>
-            </div>
-
-            <!-- Video 11 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcsETf8ovHz/" data-instgrm-version="14"></blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Yamamoto Premium Service</h4>
-                    <p>Automotive Feature Content</p>
-                </div>
-            </div>
-
-            <!-- Video 12 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jshark_motorsport/video/7671569385458355474" data-video-id="7671569385458355474"> <section> <a target="_blank" title="@jshark_motorsport" href="https://www.tiktok.com/@jshark_motorsport?refer=embed">@jshark_motorsport</a> Lifan KPT 250</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Lifan KPT 250 Review</h4>
-                    <p>Dual-Sport Motorcycle Feature</p>
-                </div>
-            </div>
-
-            <!-- Video 13 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7548062711750479112" data-video-id="7548062711750479112"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Carpuride W702Pro</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Carpuride W702Pro Display</h4>
-                    <p>Smart Driving Gadget Review</p>
-                </div>
-            </div>
-
-            <!-- Video 14 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jshark_99/video/7556274739828837650" data-video-id="7556274739828837650"> <section> <a target="_blank" title="@jshark_99" href="https://www.tiktok.com/@jshark_99?refer=embed">@jshark_99</a> Motocross CRF250</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Honda CRF250 Motocross</h4>
-                    <p>Trackside Racing Action</p>
-                </div>
-            </div>
-
-            <!-- Video 15 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shelllubricantssrilanka/video/7577702923136797953" data-video-id="7577702923136797953"> <section> <a target="_blank" title="@shelllubricantssrilanka" href="https://www.tiktok.com/@shelllubricantssrilanka?refer=embed">@shelllubricantssrilanka</a> Shell Black Friday Sale</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Shell Black Friday Daraz Deal</h4>
-                    <p>Promotional Brand Content</p>
-                </div>
-            </div>
-
-            <!-- Video 16 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7689339925623213313" data-video-id="7689339925623213313"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> TotalEnergies Engine Oil</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>TotalEnergies Engine Oil Guide</h4>
-                    <p>Automotive Maintenance Feature</p>
-                </div>
-            </div>
-
-            <!-- Video 17 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7602229962397060359" data-video-id="7602229962397060359"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Suzuki Gixxer SF 250</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Suzuki Gixxer SF 250 Review</h4>
-                    <p>In-Depth Motorcycle Review</p>
-                </div>
-            </div>
-
-            <!-- Video 18 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7676445040486403335" data-video-id="7676445040486403335"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> KTM Duke 250 Review</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>KTM Duke 250 Review</h4>
-                    <p>In-Depth Motorcycle Review</p>
-                </div>
-            </div>
-
-            <!-- Video 19 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shelllubricantssrilanka/video/7590712208817016082" data-video-id="7590712208817016082"> <section> <a target="_blank" title="@shelllubricantssrilanka" href="https://www.tiktok.com/@shelllubricantssrilanka?refer=embed">@shelllubricantssrilanka</a> Shell Advance Feature</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>Shell Advance Motorcycle Oil</h4>
-                    <p>Automotive Performance Feature</p>
-                </div>
-            </div>
-
-            <!-- Video 20 -->
-            <div class="video-card">
-                <div class="video-container">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7664619763657608466" data-video-id="7664619763657608466"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> TotalEnergies Event</section> </blockquote>
-                </div>
-                <div class="video-info">
-                    <h4>TotalEnergies Dealer Connect</h4>
-                    <p>Event Coverage & Tech Insights</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Social Media Embed Scripts (Loaded once globally) -->
-        <script async src="https://www.tiktok.com/embed.js"></script>
-        <script async src="//www.instagram.com/embed.js"></script>
-
-        <!-- Contact & Booking Section -->
-        <h3 class="section-title">Book a Shoot / Work With Me</h3>
-        <div class="contact-container">
-            <!-- Contact Details -->
-            <div class="contact-info">
-                <div class="info-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <h4>Location</h4>
-                        <p>Kottawa / Mattegoda, Sri Lanka</p>
+            <!-- Featured Client Videos (20 Videos Grid) -->
+            <h3 class="section-title">Featured Client Videos</h3>
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jshark_99/video/7690978302038936839" data-video-id="7690978302038936839"> <section> <a target="_blank" title="@jshark_99" href="https://www.tiktok.com/@jshark_99?refer=embed">@jshark_99</a> Gunner Supercross 2026</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Motorsport Trackside Vlog</h4>
+                        <p>Commercial Coverage & Editing</p>
                     </div>
                 </div>
 
-                <div class="info-item">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <div>
-                        <h4>Phone / WhatsApp</h4>
-                        <p><a href="https://wa.me/94711284062" target="_blank">+94 71 128 4062</a></p>
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shelllubricantssrilanka/video/7598500594747182337" data-video-id="7598500594747182337"> <section> <a target="_blank" title="@shelllubricantssrilanka" href="https://www.tiktok.com/@shelllubricantssrilanka?refer=embed">@shelllubricantssrilanka</a> Shell Helix Feature</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Automotive Review Feature</h4>
+                        <p>Cinematic Videography & Sound Design</p>
                     </div>
                 </div>
 
-                <div class="info-item">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p><a href="mailto:slpasiya@gmail.com">slpasiya@gmail.com</a></p>
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@nihariperera2/video/7570374482737646869" data-video-id="7570374482737646869"> <section> <a target="_blank" title="@nihariperera2" href="https://www.tiktok.com/@nihariperera2?refer=embed">@nihariperera2</a> Event Feature</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Event Feature</h4>
+                        <p>Cinematic Videography & Sound Design</p>
                     </div>
                 </div>
 
-                <div class="info-item">
-                    <i class="fa-solid fa-share-nodes"></i>
-                    <div>
-                        <h4>Follow My Work</h4>
-                        <div class="social-links">
-                            <a href="https://www.facebook.com/SLPASIYA0222/" target="_blank" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="https://youtube.com/@slpasiya" target="_blank" class="social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                            <a href="https://www.tiktok.com/@slpasiya0222" target="_blank" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                            <a href="https://www.instagram.com/slpasiya0222/" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <!-- Video 4 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7693141427777178900" data-video-id="7693141427777178900"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Katukurunda Racing</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Katukurunda Racing Record</h4>
+                        <p>High-Speed Action Coverage</p>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7629708933833166087" data-video-id="7629708933833166087"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> TVS Eurogrip Feature</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>TVS Eurogrip Feature</h4>
+                        <p>Promotional Brand Content</p>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7698003918155943220" data-video-id="7698003918155943220"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Whoops section magic</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Slow-Mo Action Capture</h4>
+                        <p>Supercross Trackside Coverage</p>
+                    </div>
+                </div>
+
+                <!-- Video 7 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jshark_99/video/7627803858386849032" data-video-id="7627803858386849032"> <section> <a target="_blank" title="@jshark_99" href="https://www.tiktok.com/@jshark_99?refer=embed">@jshark_99</a> Rider Recovery</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Rider Recovery & Comeback</h4>
+                        <p>Documentary & Storytelling</p>
+                    </div>
+                </div>
+
+                <!-- Video 8 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7641197797177445639" data-video-id="7641197797177445639"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Suzuki Inazuma Review</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Suzuki Inazuma 400 Review</h4>
+                        <p>In-Depth Motorcycle Review</p>
+                    </div>
+                </div>
+
+                <!-- Video 9 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRXD9XPiLJy/" data-instgrm-version="14"></blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Instagram Reel Showcase</h4>
+                        <p>Cinematic Social Media Content</p>
+                    </div>
+                </div>
+
+                <!-- Video 10 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shelllubricantssrilanka/video/7577702081973210385" data-video-id="7577702081973210385"> <section> <a target="_blank" title="@shelllubricantssrilanka" href="https://www.tiktok.com/@shelllubricantssrilanka?refer=embed">@shelllubricantssrilanka</a> Shell Rimula Bundle</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Shell Rimula Bundle Offer</h4>
+                        <p>Promotional Brand Content</p>
+                    </div>
+                </div>
+
+                <!-- Video 11 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcsETf8ovHz/" data-instgrm-version="14"></blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Yamamoto Premium Service</h4>
+                        <p>Automotive Feature Content</p>
+                    </div>
+                </div>
+
+                <!-- Video 12 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jshark_motorsport/video/7671569385458355474" data-video-id="7671569385458355474"> <section> <a target="_blank" title="@jshark_motorsport" href="https://www.tiktok.com/@jshark_motorsport?refer=embed">@jshark_motorsport</a> Lifan KPT 250</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Lifan KPT 250 Review</h4>
+                        <p>Dual-Sport Motorcycle Feature</p>
+                    </div>
+                </div>
+
+                <!-- Video 13 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7548062711750479112" data-video-id="7548062711750479112"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Carpuride W702Pro</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Carpuride W702Pro Display</h4>
+                        <p>Smart Driving Gadget Review</p>
+                    </div>
+                </div>
+
+                <!-- Video 14 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jshark_99/video/7556274739828837650" data-video-id="7556274739828837650"> <section> <a target="_blank" title="@jshark_99" href="https://www.tiktok.com/@jshark_99?refer=embed">@jshark_99</a> Motocross CRF250</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Honda CRF250 Motocross</h4>
+                        <p>Trackside Racing Action</p>
+                    </div>
+                </div>
+
+                <!-- Video 15 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shelllubricantssrilanka/video/7577702923136797953" data-video-id="7577702923136797953"> <section> <a target="_blank" title="@shelllubricantssrilanka" href="https://www.tiktok.com/@shelllubricantssrilanka?refer=embed">@shelllubricantssrilanka</a> Shell Black Friday Sale</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Shell Black Friday Daraz Deal</h4>
+                        <p>Promotional Brand Content</p>
+                    </div>
+                </div>
+
+                <!-- Video 16 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7689339925623213313" data-video-id="7689339925623213313"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> TotalEnergies Engine Oil</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>TotalEnergies Engine Oil Guide</h4>
+                        <p>Automotive Maintenance Feature</p>
+                    </div>
+                </div>
+
+                <!-- Video 17 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7602229962397060359" data-video-id="7602229962397060359"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> Suzuki Gixxer SF 250</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Suzuki Gixxer SF 250 Review</h4>
+                        <p>In-Depth Motorcycle Review</p>
+                    </div>
+                </div>
+
+                <!-- Video 18 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7676445040486403335" data-video-id="7676445040486403335"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> KTM Duke 250 Review</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>KTM Duke 250 Review</h4>
+                        <p>In-Depth Motorcycle Review</p>
+                    </div>
+                </div>
+
+                <!-- Video 19 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shelllubricantssrilanka/video/7590712208817016082" data-video-id="7590712208817016082"> <section> <a target="_blank" title="@shelllubricantssrilanka" href="https://www.tiktok.com/@shelllubricantssrilanka?refer=embed">@shelllubricantssrilanka</a> Shell Advance Feature</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>Shell Advance Motorcycle Oil</h4>
+                        <p>Automotive Performance Feature</p>
+                    </div>
+                </div>
+
+                <!-- Video 20 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@slpasiya0222/video/7664619763657608466" data-video-id="7664619763657608466"> <section> <a target="_blank" title="@slpasiya0222" href="https://www.tiktok.com/@slpasiya0222?refer=embed">@slpasiya0222</a> TotalEnergies Event</section> </blockquote>
+                    </div>
+                    <div class="video-info">
+                        <h4>TotalEnergies Dealer Connect</h4>
+                        <p>Event Coverage & Tech Insights</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media Embed Scripts -->
+            <script async src="https://www.tiktok.com/embed.js"></script>
+            <script async src="//www.instagram.com/embed.js"></script>
+
+            <!-- Contact & Booking Section -->
+            <h3 class="section-title">Book a Shoot / Work With Me</h3>
+            <div class="contact-container">
+                <!-- Contact Details -->
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Kottawa / Mattegoda, Sri Lanka</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <h4>Phone / WhatsApp</h4>
+                            <p><a href="https://wa.me/94711284062" target="_blank">+94 71 128 4062</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:slpasiya@gmail.com">slpasiya@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-solid fa-share-nodes"></i>
+                        <div>
+                            <h4>Follow My Work</h4>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/SLPASIYA0222/" target="_blank" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://youtube.com/@slpasiya" target="_blank" class="social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="https://www.tiktok.com/@slpasiya0222" target="_blank" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                                <a href="https://www.instagram.com/slpasiya0222/" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Inquiry Form -->
+                <form class="contact-form" action="mailto:slpasiya@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="contact" placeholder="Your Phone or Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="4" placeholder="Tell me about your project (Videography, Shoot, Video Editing...)" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Booking Request</button>
+                </form>
             </div>
 
-            <!-- Inquiry Form -->
-            <form class="contact-form" action="mailto:slpasiya@gmail.com" method="post" enctype="text/plain">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="contact" placeholder="Your Phone or Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" rows="4" placeholder="Tell me about your project (Videography, Shoot, Video Editing...)" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Booking Request</button>
-            </form>
-        </div>
-
-        <!-- Back Button -->
-        <div class="actions">
-            <a href="index.html" class="btn btn-primary" style="background-color: transparent; border: 2px solid #334155;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+            <!-- Back Button -->
+            <div class="actions">
+                <a href="index.html" class="btn btn-primary" style="background-color: transparent; border: 2px solid #334155;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+            </div>
         </div>
     </div>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 
 </body>
 </html>
