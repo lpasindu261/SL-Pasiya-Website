@@ -12,11 +12,87 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: #0b0f17;
             color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Navigation Styles */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(11, 15, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .site-logo {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+        
+        .site-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff2a2a;
+        }
+
+        /* Hamburger Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Wrapper */
+        .main-wrapper {
+            flex: 1;
             padding: 40px 20px;
         }
 
@@ -165,7 +241,30 @@
             box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
         }
 
-        @media (max-width: 600px) {
+        /* Mobile Responsive Styles & Hamburger Menu */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(11, 15, 23, 0.98);
+                border-bottom: 1px solid #1e293b;
+                padding: 1.5rem 0;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
             .container {
                 padding: 20px;
             }
@@ -177,58 +276,101 @@
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>SL PASIYA Shop</h1>
-            <p>Official Merch, Accessories & Creative Gear Items</p>
-        </div>
-
-        <!-- Products Grid -->
-        <h3 class="section-title">Available Items</h3>
-        <div class="shop-grid">
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="logo.jpg" alt="SL PASIYA Logo" class="site-logo">
+            </a>
             
-            <!-- Product 1 -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://via.placeholder.com/400x300?text=SL+PASIYA+Merch" alt="Product 1">
-                </div>
-                <div class="product-info">
-                    <h3>SL PASIYA Branded T-Shirt / Hoodie</h3>
-                    <div class="price">Rs. X,XXX</div>
-                    <p>High-quality cotton apparel featuring official SL PASIYA branding. Built for comfort and riders.</p>
-                </div>
-                <div class="product-action">
-                    <a href="https://wa.me/9477XXXXXXX?text=Hi!%20I%20want%20to%20buy%20the%20SL%20PASIYA%20Merch" target="_blank" class="btn btn-whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
-                    </a>
-                </div>
-            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
-            <!-- Product 2 -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://via.placeholder.com/400x300?text=Sticker+Pack" alt="Product 2">
-                </div>
-                <div class="product-info">
-                    <h3>Motorsport Sticker Pack</h3>
-                    <div class="price">Rs. XXX</div>
-                    <p>Weatherproof high-durability sticker pack designed for motorcycles, helmets, and laptops.</p>
-                </div>
-                <div class="product-action">
-                    <a href="https://wa.me/9477XXXXXXX?text=Hi!%20I%20want%20to%20buy%20the%20Sticker%20Pack" target="_blank" class="btn btn-whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
-                    </a>
-                </div>
-            </div>
-
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reviews.html">Reviews & Promotions</a></li>
+                <li><a href="visuals.html">Pasindu Visuals</a></li>
+                <li><a href="rentals.html">Gear Rentals</a></li>
+                <li><a href="shop.html" style="color: #ff2a2a;">Store</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
+    </header>
 
-        <!-- Back Button -->
-        <div class="actions">
-            <a href="index.html" class="btn btn-primary" style="background-color: transparent; border: 2px solid #334155; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    <div class="main-wrapper">
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <h1>SL PASIYA Shop</h1>
+                <p>Official Merch, Accessories & Creative Gear Items</p>
+            </div>
+
+            <!-- Products Grid -->
+            <h3 class="section-title">Available Items</h3>
+            <div class="shop-grid">
+                
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/400x300?text=SL+PASIYA+Merch" alt="Product 1">
+                    </div>
+                    <div class="product-info">
+                        <h3>SL PASIYA Branded T-Shirt / Hoodie</h3>
+                        <div class="price">Rs. X,XXX</div>
+                        <p>High-quality cotton apparel featuring official SL PASIYA branding. Built for comfort and riders.</p>
+                    </div>
+                    <div class="product-action">
+                        <a href="https://wa.me/94711284062?text=Hi!%20I%20want%20to%20buy%20the%20SL%20PASIYA%20Merch" target="_blank" class="btn btn-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/400x300?text=Sticker+Pack" alt="Product 2">
+                    </div>
+                    <div class="product-info">
+                        <h3>Motorsport Sticker Pack</h3>
+                        <div class="price">Rs. XXX</div>
+                        <p>Weatherproof high-durability sticker pack designed for motorcycles, helmets, and laptops.</p>
+                    </div>
+                    <div class="product-action">
+                        <a href="https://wa.me/94711284062?text=Hi!%20I%20want%20to%20buy%20the%20Sticker%20Pack" target="_blank" class="btn btn-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Back Button -->
+            <div class="actions">
+                <a href="index.html" class="btn btn-primary" style="background-color: transparent; border: 2px solid #334155; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+            </div>
         </div>
     </div>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 
 </body>
 </html>
